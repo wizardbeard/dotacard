@@ -20,7 +20,7 @@
 
 .choose .pickbox .deck {
   position: relative;
-  left: -50%;
+  left: 0;
   height: 340px;
   transform: translateZ(0);
 }

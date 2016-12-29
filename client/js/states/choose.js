@@ -1,5 +1,5 @@
 game.states.choose = {
-  size: 100,
+  size: 200,
   build: function () {
     this.pickbox = $('<div>').addClass('pickbox').attr('title', game.data.ui.chooseheroes).appendTo(this.el);
     this.pickedbox = $('<div>').addClass('pickedbox').hide();

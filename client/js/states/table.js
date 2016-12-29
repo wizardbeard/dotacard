@@ -24,6 +24,7 @@ game.states.table = {
       game.states.table.setup = true;
       game.tower.place();
       game.tree.place();
+      game.units.place();
       game[game.mode].setTable();
     }
   },

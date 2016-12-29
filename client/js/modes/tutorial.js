@@ -191,11 +191,11 @@ game.tutorial = {
     game.tutorial.message.html(game.data.ui.axeenemymove);
     game.message.html(game.data.ui.enemymove);
     game.currentData.moves = [
-      'C:'+game.map.mirrorPosition('D2')+':'+game.map.mirrorPosition('G3')+':blink:am',
-      'M:'+game.map.mirrorPosition('E2')+':'+game.map.mirrorPosition('D3'),
-      'M:'+game.map.mirrorPosition('F2')+':'+game.map.mirrorPosition('E3'),
-      'C:'+game.map.mirrorPosition('G2')+':'+game.map.mirrorPosition('G2')+':mana:kotl',
-      'M:'+game.map.mirrorPosition('H2')+':'+game.map.mirrorPosition('H3')
+      'C:'+game.map.mirrorPosition('C1')+':'+game.map.mirrorPosition('D3')+':blink:am',
+      'M:'+game.map.mirrorPosition('D1')+':'+game.map.mirrorPosition('C2'),
+      'M:'+game.map.mirrorPosition('E1')+':'+game.map.mirrorPosition('E2'),
+      'C:'+game.map.mirrorPosition('F1')+':'+game.map.mirrorPosition('F1')+':mana:kotl',
+      'M:'+game.map.mirrorPosition('G1')+':'+game.map.mirrorPosition('F2')
     ].join('|');
     game.enemy.startMoving(game.tutorial.endTurn);
   },

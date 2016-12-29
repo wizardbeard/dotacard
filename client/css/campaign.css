@@ -163,14 +163,14 @@
 
 .stages.roshan {
   background-image: url(../img/campaign/ico_rosh.png);
-  top: 280px;
-  left: 430px;
+  top: 130px;
+  left: 150px;
 }
 
 .stages.shop {
   background-image: url(../img/campaign/ico_shop.png);
-  top: 215px;
-  left: 385px;
+  top: 300px;
+  left: 440px;
   width: 60px;
   height: 60px;
   opacity: 1;
@@ -178,7 +178,7 @@
 
 .stages.normal.mid {
   background-image: url(../img/campaign/ico_medium.png);
-  top: 205px;
+  top: 190px;
   left: 295px;
 }
 
@@ -197,13 +197,13 @@
 }
 
 .stages.hard.bot {
-  bottom: 365px;
+  bottom: 335px;
   left: 500px;
 }
 
 .stages.final {
   background-image: url(../img/campaign/ico_dire.png);
-  top: 20px;
+  top: 5px;
   left: 510px;
   opacity: 1;
 }
@@ -215,8 +215,8 @@
 }
 
 .stages.optional.top {
-  top: 185px;
-  left: 104px;
+  top: 290px;
+  left: 95px;
 }
 .stages.optional.mid {
   top: 380px;

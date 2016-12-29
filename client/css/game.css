@@ -60,7 +60,7 @@ noscript {
   display: block;
 }
 
-.greenlight-button {
+.greenlight-button, .patreon-button {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -68,28 +68,35 @@ noscript {
   height: 75px;
   overflow: hidden;
   transition: width 0.3s;
-  transform: translateZ(1px) translate(-490px, -270px);
+  transform: translateZ(1px) translate(-490px, -275px);
   z-index: 30;
 }
+.patreon-button {
+  top: 50%;
+  transform: translateZ(1px) translate(-490px, -200px);
+}
 
-.greenlight-button:hover {
+.greenlight-button:hover, .patreon-button:hover {
   width: 442px;
 }
 
-.greenlight-button img {
+.greenlight-button img, .patreon-button img {
   position: absolute;
   top: 17px;
 }
 
-.greenlight-button .greenlight-banner {
+.greenlight-button .greenlight-banner,
+.patreon-button .patreon-banner {
   top: 0;
 }
 
-.greenlight-banner, .greenlight-button:hover img {
+.greenlight-banner, .greenlight-button:hover img,
+.patreon-banner, .patreon-button:hover img {
   opacity: 0;
 }
 
-.greenlight-button:hover .greenlight-banner {
+.greenlight-button:hover .greenlight-banner,
+.patreon-button:hover .patreon-banner {
   opacity: 1;
 }
 

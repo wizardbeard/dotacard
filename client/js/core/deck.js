@@ -12,7 +12,7 @@ game.deck = {
       multi = op.multi,
       deckFilter = op.deckFilter,
       deck = $('<div>').addClass('deck ' + name);
-    if (!game[name]) {
+    if (!game.data[name]) {
       game.states.loading.json(name, function () {
         game.deck.createDeck(deck, name, cb, filter, multi);
       });
@@ -22,6 +22,7 @@ game.deck = {
   createDeck: function (deck, name, cb, filter, multi, deckFilter) {
     if (name === 'heroes') { game.deck.createHeroesDeck(deck, cb, filter); }
     if (name === 'skills') { game.deck.createSkillsDeck(deck, cb, filter, multi, deckFilter); }
+    if (name === 'units') { game.deck.createUnitsDeck(deck, cb, filter, multi, deckFilter); }
   },
   createHeroesDeck: function (deck, cb, filter) {
     var deckData = game.data.heroes,
@@ -45,6 +46,35 @@ game.deck = {
         ].join(' ');
         card = game.card.build(herodata).appendTo(deck);
         cards.push(card);
+      }
+    });
+    deck.data('cards', cards);
+    if (cb) { cb(deck); }
+  },
+  createUnitsDeck: function (deck, cb, filter) {
+    var deckData = game.data.units,
+      cards = [],
+      card;
+    //console.log(deckData)
+    $.each(deckData, function (unittype, units) {
+      var found = false;
+      if (filter) {
+        $.each(filter, function (i, pick) {
+          if (pick === unittype) { found = true; }
+        });
+      }
+      if (found || !filter) {
+        $.each(units, function (unitid, unitdata) {
+          unitdata.type = unitid;
+          unitdata.speed = 2;
+          unitdata.buffsBox = true;
+          unitdata.className = [
+            unitid,
+            'units'
+          ].join(' ');
+          card = game.card.build(unitdata).appendTo(deck);
+          cards.push(card);
+        });
       }
     });
     deck.data('cards', cards);

@@ -75,13 +75,15 @@ var game = {
     return (side == 'player') ? 'enemy' : 'player';
   },
   db: function(send, cb) {
+    var server = game.dynamicHost + 'db';
+    if (game.debug) server = '/db';
     if (typeof send.data !== 'string') {
       send.data = JSON.stringify(send.data);
     }
     $.ajax({
       async: true,
       type: 'GET',
-      url: game.dynamicHost + 'db',
+      url: server,
       data: send,
       timeout: 4000,
       complete: function(receive) {

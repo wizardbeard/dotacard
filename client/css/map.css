@@ -81,7 +81,7 @@
 
 .debug .map .spot .debug {
   opacity: 0.3;
-  /* display: block; */
+  display: block;
   font-size: 64px;
   transform: translate3d(10px, 30px, 10px);
   pointer-events: none;

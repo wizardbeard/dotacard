@@ -193,12 +193,26 @@
   line-height: 13px;
 }
 
+.card.player.towers {
+  background: #25b77c;
+}
+
 .card.player {
   background: #74c47b;
 }
 
+.card.player.units {
+  background: #59955e;
+}
+
+.card.enemy.towers {
+  background: #a23030;
+}
 .card.enemy {
-  background: #c23636;
+  background: #c55f5f;
+}
+.card.enemy.units {
+  background: #be76e0;
 }
 
 .card.skills {
@@ -207,14 +221,6 @@
 
 .card.left-hand.skills {
   background: #67bcd6;
-}
-
-.card.temp.skills {
-  background: #775cc6;
-}
-
-.card.temp.left-hand.skills {
-  background: #977ce6;
 }
 
 .states .map .card.player.heroes.selected, .states .map .card.player.towers.selected {
@@ -449,12 +455,14 @@
   transform: translate3d(-50%,-50%,0) scale(0.4) rotateY(-180deg);
 }
 
-.skills.card {
+.skills.card,
+.creep.card {
   transform-style: preserve-3d;
   backface-visibility: hidden;
 }
 
-.skills.card:after {
+.skills.card:after,
+.creep.card:after {
   content: "";
   display: block;
   background: white;
@@ -727,4 +735,8 @@
 
 .states .map .card.melee-attack {
   transform: translate3d(-50%, -50%, 30px) rotateX(-10deg) rotateZ(10deg);
+}
+
+.card.units.player .img {
+  background-image: url("../img/creeps/player_creep.jpg");
 }
