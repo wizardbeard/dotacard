@@ -12,8 +12,6 @@ In our Wiki page you can ckeck out the [game rules][7] and much more.
 
 Please report any [sugestions or issues][8] here at github.
 
-[![Steam Greenlight Banner](http://dotacard.herokuapp.com/client/img/greenlight-banner.png)][9]
-
 **Local server setup**
 
     npm install
