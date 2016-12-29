@@ -34,6 +34,7 @@ game.states.loading = {
     game.options.build();
     game.states.build(function () {
       game.container.addClass('finished');
+      game.states.log.createBkgDeck();
       game.history.recover();
     });
   },

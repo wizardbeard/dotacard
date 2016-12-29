@@ -40,7 +40,6 @@ game.states.choose = {
           card.dataset.index += pickDeck.data('cards').length;
           game.states.choose.pickDeck.append(card);
         });
-        game.states.log.createBkgDeck();
       }
     });
   },
