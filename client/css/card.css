@@ -22,7 +22,11 @@
   animation: pickedboxslidedown 0.5s;
   top: 50%;
   left: 50%;
-  transform: translate3d(-50%, -50%, 0) scale(0.4);
+  transform: translate3d(-50%, -50%, 0) scale(0.5);
+}
+
+.library .pickedbox .card {
+  transform: translate3d(-50%, -50%, 0) scale(0.6);
 }
 
 @keyframes pickedboxslidedown {

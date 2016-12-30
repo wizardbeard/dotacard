@@ -2,6 +2,7 @@ game.library = {
   build: function () {
     game.library.buildSkills();
     game.states.choose.pickedbox.show();
+    game.states.choose.intro.show();
     game.states.choose.librarytest.show();
     game.states.choose.randombt.hide();
     game.states.choose.mydeck.hide();
@@ -9,7 +10,6 @@ game.library = {
     game.loader.removeClass('loading');
     $('.slot').removeClass('available');
     game.message.text(game.data.ui.library);
-    game.states.choose.counter.text(game.data.ui.skills);
     game.seed = new Date().valueOf();
     game.id = btoa(game.seed);
   },
@@ -30,6 +30,7 @@ game.library = {
   chooseStart: function (hero) {
     if (hero) game.states.choose.selectHero(hero, 'force');
     else game.states.choose.selectFirst('force');
+    game.states.choose.counter.hide();
   },
   select: function (card, force) { 
     var hero = card.data('hero'),
@@ -37,7 +38,6 @@ game.library = {
         disabled;
     if (force || hero !== $('.choose .card.selected').data('hero')) {
       disabled = card.hasClass('dead');
-      game.states.choose.counter.text(card.data('name') + ' ' + game.data.ui.skills);
       $('.slot .card.skills').appendTo(game.library.skills);
       heroSkills = $('.library.skills .card.'+hero);
       $('.slot').each(function (i) {
@@ -53,6 +53,7 @@ game.library = {
       }
       game.states.choose.librarytest.attr('disabled', !!card.data('disable'));
     }
+    game.states.choose.playVideo();
   },
   chooseEnd: function () {
     game.states.choose.clear();
@@ -68,7 +69,6 @@ game.library = {
     game.player.kills = 0;
     game.enemy.kills = 0;
     game.turn.build(6);
-    game.message.text(game.data.ui.library + ' '+ game.data.heroes[game.library.hero].name);    
     game.timeout(400, function () {
       game.skill.build('player', 'single');
       game.skill.build('enemy');
@@ -76,6 +76,11 @@ game.library = {
       game.library.buildHand();
       game.library.startPlayerTurn();
     });
+  },
+  showIntro: function () {
+    var hero = game.library.hero,
+        link = game.data.heroes[hero].intro;
+    if (link) game.states.choose.playVideo(link);
   },
   startPlayerTurn: function () {
     game.turn.beginPlayer(function () {

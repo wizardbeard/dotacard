@@ -12,7 +12,6 @@ game.tutorial = {
     game.id = btoa(game.seed);
     game.message.text(game.data.ui.waiting);
     game.tutorial.message.html(game.data.ui.axepick);
-    game.states.choose.counter.show().text(game.data.ui.clickpick);
     game.states.choose.librarytest.hide();
     game.states.choose.randombt.hide();
     game.states.choose.mydeck.hide();
@@ -38,6 +37,7 @@ game.tutorial = {
     game.states.choose.selectFirst('force');
     $('.pickbox .card').hide();
     $('.am, .cm, .pud, .ld, .nyx', '.pickbox').show();
+    game.states.choose.counter.show().text(game.data.ui.clickpick);
   },
   pick: function () {
     var availableSlots = $('.slot.available').length;

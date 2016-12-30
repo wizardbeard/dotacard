@@ -11,6 +11,7 @@ game.single = {
     game.states.choose.randombt.show();
     game.states.choose.mydeck.show();
     game.states.choose.enablePick();
+    game.states.choose.counter.show().text(game.data.ui.clickpick);
   },
   pick: function () {
     var availableSlots = $('.slot.available').length;

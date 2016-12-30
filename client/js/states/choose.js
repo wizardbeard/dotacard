@@ -8,10 +8,12 @@ game.states.choose = {
     this.pickDeck = this.buildDeck();
     this.buttonbox = $('<div>').addClass('buttonbox');
     this.back = $('<div>').addClass('back button').text(game.data.ui.back).attr({title: game.data.ui.backtomenu}).on('mouseup touchend', this.backClick).appendTo(this.buttonbox);
+    this.intro = $('<div>').addClass('intro button').text(game.data.ui.intro).attr({title: game.data.ui.introtitle}).on('mouseup touchend', game.library.showIntro).appendTo(this.buttonbox);
     this.randombt = $('<div>').addClass('random button').text(game.data.ui.random).attr({title: game.data.ui.randomtitle}).on('mouseup touchend', game.states.choose.randomClick).appendTo(this.buttonbox);
     this.mydeck = $('<div>').addClass('mydeck button highlight').text(game.data.ui.mydeck).attr({title: game.data.ui.mydecktitle}).on('mouseup touchend', this.savedDeck).appendTo(this.buttonbox);
     this.librarytest = $('<div>').addClass('librarytest button highlight').text(game.data.ui.librarytest).attr({title: game.data.ui.librarytesttitle}).on('mouseup touchend', this.testHeroClick).appendTo(this.buttonbox);
-    this.el.append(this.pickedbox).append(this.buttonbox);
+    this.el.append(this.buttonbox).append(this.pickedbox);
+    this.video = $('<iframe>').hide().addClass('video').attr({'allowfullscreen': true, 'frameborder': 0, 'width': 760, 'height': 340}).appendTo(this.el);
   },
   start: function () {
     var hero = localStorage.getItem('choose');
@@ -158,6 +160,23 @@ game.states.choose = {
       }
     });
   },
+  playVideo: function (link) {
+    //library only
+    var t;
+    if (!game.states.choose.videoPlaying && link) {
+      game.states.choose.videoPlaying = true;
+      game.states.choose.video.attr({'src': 'https://www.youtube.com/embed/' + link}).show();
+      t = game.states.choose.intro.text();
+      t = '⏹' + t.substr(1);
+      game.states.choose.intro.text(t).addClass('playing');
+    } else {
+      game.states.choose.videoPlaying = false;
+      game.states.choose.video.attr({'src': 'about:blank'}).hide();
+      t = game.states.choose.intro.text();
+      t = '▶' + t.substr(1);
+      game.states.choose.intro.text(t).removeClass('playing');
+    }
+  },
   testHeroClick: function () {
     //library only
     if (!game.states.choose.librarytest.attr('disabled')) {
@@ -190,6 +209,8 @@ game.states.choose = {
       this.back.attr({disabled: false});
       this.counter.hide();
       this.pickedbox.hide();
+      this.intro.hide();
+      this.playVideo();
       this.librarytest.hide();
       this.randombt.hide();
       this.mydeck.hide();
