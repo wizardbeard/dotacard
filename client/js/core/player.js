@@ -36,39 +36,32 @@ game.player = {
     }
     card = availableSkills.randomCard();
     if (card.data('hand') === game.data.ui.right) {
-      card.appendTo(game.player.skills.hand);
+      if (game.player.skills.hand.children().length < game.player.maxCards) {
+        card.appendTo(game.player.skills.hand);
+      }
     } else {
       card.appendTo(game.player.skills.sidehand);
     }
   },
-  buyCreepCard: function () {
-    var creepcard = game.player.unitsDeck.children().first().clone().on('mousedown touchstart', game.card.select);
-    if (game.player.skills.sidehand.children().length < 5) {
-      creepcard.appendTo(game.player.skills.sidehand);
-    }
-  },
-  buyCreeps: function () {
-      if (game.player.turn === 1) {
-        for (var i = 0; i < 3; i += 1) {
-          game.player.buyCreepCard();
-        }
-      }
-  },
   buyHand: function () {
-    if (game.player.turn > 0) {
+    if (game.player.turn > 1) {
       for (var i = 0; i < game.player.cardsPerTurn; i += 1) {
-        if (game.player.skills.hand.children().length < game.player.maxCards) {
-          game.player.buyCard();
-        }
+        game.player.buyCard();
       }
     }
     game.player.buyCreeps();
   },
+  buyCreeps: function () {
+    if (game.player.turn === 1) {
+      game.player.unitsDeck.children('.ranged').clone().on('mousedown touchstart', game.card.select).appendTo(game.player.skills.sidehand);
+      for (var i = 0; i < 3; i += 1) {
+        game.player.unitsDeck.children('.melee').clone().on('mousedown touchstart', game.card.select).appendTo(game.player.skills.sidehand);
+      }
+    }
+  },
   buyCards: function (n) {
     for (var i=0; i<n; i++) {
-      if (game.player.skills.hand.children().length < game.player.maxCards) {
-        game.player.buyCard();
-      }
+      game.player.buyCard();
     }
   },
   move: function (event) {

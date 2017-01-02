@@ -16,10 +16,16 @@
   background: tomato;
   box-shadow: 0 4px 0 #df4327;
 }
-
 .sweet-confirm:hover {
   background: #ff7357;
 }
+
+.sweet-alert.options .sweet-confirm {
+  background: #9dada4;
+  box-shadow: 0 4px 0 #888888;
+}
+
+
 
 .sweet-container p {
   color: #484848;

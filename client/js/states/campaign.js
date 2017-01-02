@@ -50,9 +50,9 @@ game.states.campaign = {
     this.startStage.removeClass('blink').on('mouseup touchend', this.stageOne).addClass('done');
     $('.campaign-path').css('opacity', 1);
     $('.stages.easy').addClass('enabled blink').on('mouseup touchend', this.stageTwo);
-    this.createPath(this.et, this.ru, 'et-ru');
-    this.createPath(this.em, this.ru, 'em-ru');
-    this.createPath(this.eb, this.ru, 'eb-ru');
+    this.createPath(this.et, this.nm, 'et-ru');
+    this.createPath(this.em, this.nm, 'em-ru');
+    this.createPath(this.eb, this.nm, 'eb-ru');
     this.buildDesc(game.data.campaign.easy);
   },
   buildDesc: function (data) {
@@ -112,7 +112,7 @@ game.states.campaign = {
     }
     if (game.states.campaign.stage == 2) {
       game.ai.mode = 'hard';
-      game.alert('Coming soon!');
+      game.alert('More stages coming soon!<br>Please tell us about your experience,<br><a href="https://github.com/rafaelcastrocouto/dotacard/issues/new" target="_blank">feedback at Github</a> ');
     }
   },
   backClick: function () {

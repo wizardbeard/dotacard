@@ -2,7 +2,6 @@ game.online = {
   build: function (recover) {
     game.online.builded = true;
     game.loader.addClass('loading');
-    game.states.choose.librarytest.hide();
     game.states.choose.randombt.show().attr({disabled: true});
     game.states.choose.mydeck.show().attr({disabled: true});
     game.states.choose.pickedbox.hide();

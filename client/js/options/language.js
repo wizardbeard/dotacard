@@ -1,6 +1,7 @@
 game.language = {
   current: 'en-US',
   available: ['en-US', 'pt-BR', 'tr-TR'],
+  names: ['English US', 'Português BR', 'Türk TR'],
   dir: '',
   load: function (cb) {
     var lang = localStorage.getItem('lang');
@@ -30,7 +31,7 @@ game.language = {
   select: function () {
     var s = $('<select>').on('change', game.language.click);
     $(game.language.available).each(function (i, lang) {
-      $('<option>').val(lang).text(lang).appendTo(s).attr('selected', lang == localStorage.getItem('lang'));
+      $('<option>').val(lang).text(game.language.names[i]).appendTo(s).attr('selected', lang == localStorage.getItem('lang'));
     });
     return s;
   },

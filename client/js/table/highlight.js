@@ -8,7 +8,8 @@ game.highlight = {
       highlightMove: game.highlight.move,
       strokeSkill: game.highlight.strokeSkill,
       strokeAttack: game.highlight.strokeAttack,
-      highlightArrows: game.highlight.highlightArrows
+      highlightArrows: game.highlight.highlightArrows,
+      highlightCreep: game.highlight.highlightCreep
     });
   },
   map: function (event) {
@@ -28,7 +29,8 @@ game.highlight = {
             game.selectedCard.highlightAttack();
           }
         }
-      } else if (game.selectedCard.hasClass('skills') && !game.selectedCard.hasClass('done')) {
+      }
+      if (game.selectedCard.hasClass('skills') && !game.selectedCard.hasClass('done')) {
         if (game.selectedCard.closest('.hand').length &&
             (game.mode != 'tutorial' || game.mode != 'library') &&
             game.isPlayerTurn()) {
@@ -40,8 +42,12 @@ game.highlight = {
           game.selectedCard.highlightArrows();
         }
         if (game.isPlayerTurn()) game.selectedCard.highlightTargets(event);
-      } else if (game.selectedCard.hasClass('towers')) {
+      }
+      if (game.selectedCard.hasClass('towers')) {
         game.selectedCard.strokeAttack();
+      }
+      if (game.selectedCard.hasClass('units') && game.selectedCard.parent().is('.sidehand')) {
+        game.selectedCard.highlightCreep();
       }
     }
   },
@@ -301,6 +307,9 @@ game.highlight = {
         });
       }
     }
+  },
+  highlightCreep: function () {
+    $('.spot.row4').addClass('movearea').on('mouseup.highlight touchend.highlight', game.units.creepSummon);
   },
   clearMap: function () {
     game.skill.aoe = null;

@@ -74,7 +74,6 @@
   position: absolute;
   width: 80px;
   height: 80px;
-  opacity: 0.7;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: 50%;
@@ -84,14 +83,15 @@
 .stages:hover {
   background-color: rgba(255,255,225,0.3);
   box-shadow: 0 0 15px 0 rgba(255,255,225,0.7);
-  opacity: 1;
 }
 
 .stages.blink {
   animation: stagesblink 1s infinite;
   background-color: rgba(255,255,225,0.3);
 }
-
+.stages.blink:after {
+  display: none;
+}
 .stages.done {
   box-shadow: 0 0 15px 0 rgba(255,255,225,0.7);
 }
@@ -116,8 +116,8 @@
 }
 
 .stages.enabled {
-  opacity: 1;
   cursor: pointer;
+  background-color: rgba(255,255,225,0.3);
 }
 
 .stages.enabled:hover {
@@ -205,7 +205,6 @@
   background-image: url(../img/campaign/ico_dire.png);
   top: 5px;
   left: 510px;
-  opacity: 1;
 }
 
 .stages.optional {

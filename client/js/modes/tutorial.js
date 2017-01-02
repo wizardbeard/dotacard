@@ -12,9 +12,6 @@ game.tutorial = {
     game.id = btoa(game.seed);
     game.message.text(game.data.ui.waiting);
     game.tutorial.message.html(game.data.ui.axepick);
-    game.states.choose.librarytest.hide();
-    game.states.choose.randombt.hide();
-    game.states.choose.mydeck.hide();
     game.states.choose.enablePick();
     game.tutorial.axeshow();
   },

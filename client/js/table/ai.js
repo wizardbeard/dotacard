@@ -241,13 +241,13 @@ game.ai = {
     $('.map .enemy.card:not(.towers)').each(function (i, el) {
       var card = $(el);
       var cardData = card.data('ai');
-      card.data('ai', cardData);
       //per hero play
       if (card.hasClass('heroes')) {
         var hero = card.data('hero');
         cardData.strats[game.ai.heroes[hero].move.default] += 8;
         game.ai.heroes[hero].play(card, cardData);
       }
+      card.data('ai', cardData);
     });
   },
   combo: function () {

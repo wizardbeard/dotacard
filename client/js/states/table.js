@@ -37,7 +37,7 @@ game.states.table = {
       }
     });
   },
-  animateCast: function (skill, target, event) {
+  animateCast: function (skill, target, event, cb) {
     game.highlight.clearMap();
     if (typeof target === 'string') { target = $('#' + target); }
     var s = skill.offset();
@@ -50,6 +50,7 @@ game.states.table = {
         left: '',
         transform: ''
       });
+      cb();
     }.bind({ skill: skill }));
   },
   skipClick: function () {

@@ -19,13 +19,17 @@ Please report any [sugestions or issues][8] here at github.
 
 More information on how to [setup your own server][10]
 
-The game is available free to play at the following URLs:
+The game is available **free to play** at the following URLs:
 
  - http://dotacard.ga
  - http://dotacard.herokuapp.com
  - http://rafaelcastrocouto.github.io/dotacard/client
 
-Special thanks to [Dopatwo](https://www.youtube.com/user/dopatwo) for the artwork and [Kevin MacLeod](https://www.youtube.com/channel/UCBqb0wSlWVFBnSuTI3Tcxig) for the soundtrack!
+Special thanks to:
+
+ - [Dopatwo](https://www.youtube.com/user/dopatwo) for the artwork 
+ - [Kevin MacLeod](https://www.youtube.com/user/kmmusic) for the soundtrack
+ - [Skylent](https://www.youtube.com/user/SkylentGames) for the introduction videos
 
 *Powered by*
 

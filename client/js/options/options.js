@@ -37,7 +37,7 @@ game.options = {
     game.container.addClass('optionState');
     swal({
       buttonsStyling: false,
-      confirmButtonText: game.data.ui.ok,
+      confirmButtonText: game.data.ui.back,
       animation: false,
       customClass: 'options',
       width: 660,

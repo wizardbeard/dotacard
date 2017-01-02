@@ -460,13 +460,13 @@
 }
 
 .skills.card,
-.creep.card {
+.units.card {
   transform-style: preserve-3d;
   backface-visibility: hidden;
 }
 
 .skills.card:after,
-.creep.card:after {
+.units.card:after {
   content: "";
   display: block;
   background: white;
@@ -494,6 +494,11 @@
 .table .player .skills .card {
   animation: playerbuyslide 2s;
 }
+
+.table .player .sidehand .card {
+  /*flex child*/
+}
+
 
 .table .player .skills .card.slidedown {
   transform: translate3d(-50%, 15%, 0) scale(0.4);
@@ -737,10 +742,15 @@
   background-image: url("../img/trees/tree_dire.jpg");
 }
 
-.states .map .card.melee-attack {
-  transform: translate3d(-50%, -50%, 30px) rotateX(-10deg) rotateZ(10deg);
+.card.units.melee.player .img {
+  background-image: url("../img/creeps/player_melee.jpg");
 }
-
-.card.units.player .img {
-  background-image: url("../img/creeps/player_creep.jpg");
+.card.units.melee.enemy .img {
+  background-image: url("../img/creeps/enemy_melee.jpg");
+}
+.card.units.ranged.player .img {
+  background-image: url("../img/creeps/player_ranged.jpg");
+}
+.card.units.ranged.enemy .img {
+  background-image: url("../img/creeps/enemy_ranged.jpg");
 }

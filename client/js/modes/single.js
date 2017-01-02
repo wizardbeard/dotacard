@@ -7,7 +7,6 @@ game.single = {
   },
   chooseStart: function (hero) {
     game.states.choose.selectFirst('force');
-    game.states.choose.librarytest.hide();
     game.states.choose.randombt.show();
     game.states.choose.mydeck.show();
     game.states.choose.enablePick();

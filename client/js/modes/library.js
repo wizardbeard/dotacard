@@ -4,9 +4,6 @@ game.library = {
     game.states.choose.pickedbox.show();
     game.states.choose.intro.show();
     game.states.choose.librarytest.show();
-    game.states.choose.randombt.hide();
-    game.states.choose.mydeck.hide();
-    game.states.choose.counter.show();
     game.loader.removeClass('loading');
     $('.slot').removeClass('available');
     game.message.text(game.data.ui.library);
@@ -30,7 +27,6 @@ game.library = {
   chooseStart: function (hero) {
     if (hero) game.states.choose.selectHero(hero, 'force');
     else game.states.choose.selectFirst('force');
-    game.states.choose.counter.hide();
   },
   select: function (card, force) { 
     var hero = card.data('hero'),

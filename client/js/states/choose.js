@@ -16,6 +16,7 @@ game.states.choose = {
     this.video = $('<iframe>').hide().addClass('video').attr({'allowfullscreen': true, 'frameborder': 0, 'width': 760, 'height': 340}).appendTo(this.el);
   },
   start: function () {
+    $('.choose .buttonbox .button').not('.back').hide();    
     var hero = localStorage.getItem('choose');
     if (game.mode && game[game.mode].chooseStart) game[game.mode].chooseStart(hero);
   },
@@ -209,11 +210,8 @@ game.states.choose = {
       this.back.attr({disabled: false});
       this.counter.hide();
       this.pickedbox.hide();
-      this.intro.hide();
-      this.playVideo();
-      this.librarytest.hide();
-      this.randombt.hide();
-      this.mydeck.hide();
+      $('.choose .buttonbox .button').not('.back').hide();
+      this.playVideo(); //clear video iframe
       this.sort();
       $('.slot .card.heroes').prependTo(this.pickDeck).on('mousedown.choose touchstart.choose', game.states.choose.select);
     }.bind(this), 100);

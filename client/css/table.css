@@ -44,14 +44,16 @@
 }
 
 .table .player .skills.sidehand {
-  margin-right: 30px;
+  margin-right: 60px;
   right: 630px;
-  width: auto;
+  width: 265px;
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .table .player .skills.hand {
   left: 340px;
-  width: auto;
+  width: 600px;
   padding-right: 20px;
 }
 
