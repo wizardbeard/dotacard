@@ -51,11 +51,13 @@ game.player = {
     }
     game.player.buyCreeps();
   },
-  buyCreeps: function () {
-    if (game.player.turn === 1) {
-      game.player.unitsDeck.children('.ranged').clone().on('mousedown touchstart', game.card.select).appendTo(game.player.skills.sidehand);
+  buyCreeps: function (force) {
+    if (game.player.turn === 1 || force) {
+      var ranged = game.player.unitsDeck.children('.ranged');
+      ranged.clone().data(ranged.data()).on('mousedown touchstart', game.card.select).appendTo(game.player.skills.sidehand);
       for (var i = 0; i < 3; i += 1) {
-        game.player.unitsDeck.children('.melee').clone().on('mousedown touchstart', game.card.select).appendTo(game.player.skills.sidehand);
+        var melee = game.player.unitsDeck.children('.melee');
+        melee.clone().data(melee.data()).on('mousedown touchstart', game.card.select).appendTo(game.player.skills.sidehand);
       }
     }
   },

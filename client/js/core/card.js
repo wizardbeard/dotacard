@@ -564,6 +564,10 @@ game.card = {
       } else if (this.hasClass('enemy')) { 
         if (game[game.mode].win) game[game.mode].win(); 
       }
+    } else if (this.hasClass('units')) {
+      var side = this.side();
+      evt.source.damage(game.creepDeathDamage, game[side].tower, game.data.ui.pure);
+      this.detach();
     } else { this.detach(); }
     return this;
   },
@@ -592,7 +596,7 @@ game.card = {
     if (spot && spot.length) {  
       var side = this.side();
       var unit = this.data('killer');
-      if (!nopenalty) unit.damage(game.deadDamage, game[side].tower, game.data.ui.pure);
+      if (!nopenalty) unit.damage(game.heroDeathDamage, game[side].tower, game.data.ui.pure);
       this.data('reborn', null);
       this.setCurrentHp(hp);
       this.removeClass('dead');

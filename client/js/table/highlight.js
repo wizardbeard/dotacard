@@ -309,7 +309,7 @@ game.highlight = {
     }
   },
   highlightCreep: function () {
-    $('.spot.row4').addClass('movearea').on('mouseup.highlight touchend.highlight', game.units.creepSummon);
+    $('.spot.free.row4, .spot.free.row5').addClass('movearea').on('mouseup.highlight touchend.highlight', game.units.creepSummon);
   },
   clearMap: function () {
     game.skill.aoe = null;

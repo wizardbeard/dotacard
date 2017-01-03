@@ -19,6 +19,8 @@ game.states.choose = {
     $('.choose .buttonbox .button').not('.back').hide();    
     var hero = localStorage.getItem('choose');
     if (game.mode && game[game.mode].chooseStart) game[game.mode].chooseStart(hero);
+    this.sort();
+    this.selectFirst();
   },
   buildDeck: function (pickDeck) {
     game.library.buildSkills();
@@ -116,7 +118,8 @@ game.states.choose = {
       if (deck && deck.length == 5) {
         game.states.choose.remember(deck);
         if (game[game.mode].chooseEnd) {
-          game.timeout(100, game[game.mode].chooseEnd);
+          game.states.choose.selectFirst();
+          game.timeout(1000, game[game.mode].chooseEnd);
         }
       }
     }
@@ -137,7 +140,8 @@ game.states.choose = {
       $(this).attr('disabled', true);
       game.states.choose.randomFill();
       if (game[game.mode].chooseEnd) {
-        game.timeout(100, game[game.mode].chooseEnd);
+        game.states.choose.selectFirst();
+        game.timeout(1000, game[game.mode].chooseEnd);
       }
     }
   },
