@@ -44,20 +44,20 @@ game.player = {
     }
   },
   buyHand: function () {
-    if (game.player.turn > 1) {
+    if (game.isPlayerTurn()) {
       for (var i = 0; i < game.player.cardsPerTurn; i += 1) {
         game.player.buyCard();
       }
+      game.player.buyCreeps();
     }
-    game.player.buyCreeps();
   },
   buyCreeps: function (force) {
     if (game.player.turn === 1 || force) {
       var ranged = game.player.unitsDeck.children('.ranged');
-      ranged.clone().data(ranged.data()).on('mousedown touchstart', game.card.select).appendTo(game.player.skills.sidehand);
+      game.units.clone(ranged).appendTo(game.player.skills.sidehand).on('mousedown touchstart', game.card.select);
       for (var i = 0; i < 3; i += 1) {
         var melee = game.player.unitsDeck.children('.melee');
-        melee.clone().data(melee.data()).on('mousedown touchstart', game.card.select).appendTo(game.player.skills.sidehand);
+        game.units.clone(melee).appendTo(game.player.skills.sidehand).on('mousedown touchstart', game.card.select);
       }
     }
   },
@@ -104,7 +104,7 @@ game.player = {
       to = target.getPosition();
     if (game.isPlayerTurn() && hero && skillid) {
       skill.passive(target);
-      game.currentMoves.push('P:' + to + ':' + skillid + ':' + hero);
+      if (game.mode == 'online') game.currentMoves.push('P:' + to + ':' + skillid + ':' + hero);
       game.states.table.animateCast(skill, target, event);
     }
   },
@@ -116,7 +116,7 @@ game.player = {
       to = target.getPosition();
     if (game.isPlayerTurn() && hero && skillid) {
       skill.toggle(target);
-      game.currentMoves.push('T:' + to + ':' + skillid + ':' + hero);
+      if (game.mode == 'online') game.currentMoves.push('T:' + to + ':' + skillid + ':' + hero);
       game.states.table.animateCast(skill, target, event);
     }
   },
@@ -135,8 +135,24 @@ game.player = {
       if (skill.data('type') !== game.data.ui.instant) {
         source.addClass('done').removeClass('draggable');
       }
-      game.currentMoves.push('C:' + from + ':' + to + ':' + skillid + ':' + hero);
+      if (game.mode == 'online') game.currentMoves.push('C:' + from + ':' + to + ':' + skillid + ':' + hero);
       game.states.table.animateCast(skill, to, event);
+    }
+  },
+  summonCreep: function () {
+    var target = $(this),
+        to = target.getPosition(),
+        creep = game.selectedCard.data('type');
+    if ( game.isPlayerTurn() &&
+         target.hasClass('free')) {
+      game.currentMoves.push('S:' + to + ':' + creep);
+      game.highlight.clearMap();
+      game.states.table.animateCast(game.selectedCard, target, event, function () {
+        game.selectedCard.addClass('done');
+        game.selectedCard.unselect();
+        game.selectedCard.place(target);
+        game.selectedCard.trigger('summon');
+      });
     }
   },
   discard: function (skill) {

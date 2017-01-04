@@ -50,7 +50,7 @@ game.states.table = {
         left: '',
         transform: ''
       });
-      cb();
+      if (cb) cb();
     }.bind({ skill: skill }));
   },
   skipClick: function () {

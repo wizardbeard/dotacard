@@ -35,19 +35,28 @@ game.enemy = {
       card.appendTo(game.enemy.skills.sidehand);
     }
   },
+  buyHand: function () {
+    if (!game.isPlayerTurn()) {
+      for (var i = 0; i < game.enemy.cardsPerTurn; i += 1) {
+        game.enemy.buyCard();
+      }
+      game.enemy.buyCreeps();
+    }
+  },
+  buyCreeps: function (force) {
+    if (game.enemy.turn === 1 || force) {
+      var ranged = game.enemy.unitsDeck.children('.ranged');
+      game.units.clone(ranged).addClass('flipped').on('mousedown touchstart', game.card.select).appendTo(game.enemy.skills.sidehand);
+      for (var i = 0; i < 3; i += 1) {
+        var melee = game.enemy.unitsDeck.children('.melee');
+        game.units.clone(melee).addClass('flipped').on('mousedown touchstart', game.card.select).appendTo(game.enemy.skills.sidehand);
+      }
+    }
+  },
   buyCards: function (n) {
     for (var i=0; i<n; i++) {
       if (game.enemy.skills.hand.children().length < game.enemy.maxCards) {
         game.enemy.buyCard();
-      }
-    }
-  },
-  buyHand: function () {
-    if (game.enemy.turn > 1) {
-      for (var i = 0; i < game.enemy.cardsPerTurn; i += 1) {
-        if (game.enemy.skills.hand.children().length < game.enemy.maxCards) {
-          game.enemy.buyCard();
-        }
       }
     }
   },
@@ -95,6 +104,11 @@ game.enemy = {
           skillid = move[2];
           hero = move[3];
           game.enemy.toggle(to, hero, skillid);
+        }
+        if (move[0] === 'S') {
+          to = game.map.mirrorPosition(move[1]);
+          creep = move[2];
+          game.enemy.summonCreep(to, creep);
         }
         if (move[0] === 'D') {
           skillid = move[1];
@@ -187,6 +201,19 @@ game.enemy = {
         skill.toggle(target);
       }
     }.bind(this, skill, target, hero, skillid));
+  },
+  summonCreep: function (to, creep) { 
+    var target = $('#' + to);
+    var creepCard = game.enemy.skills.sidehand.children('.' + creep).first();
+    if ( !game.isPlayerTurn() &&
+         target.hasClass('free') &&
+         creepCard.length) {
+      creepCard.addClass('showMoves');    
+      game.timeout(game.enemy.moveAnimation, function () {
+        creepCard.removeClass('showMoves flipped').addClass('done').place(target);
+        creepCard.trigger('summon');
+      });
+    }
   },
   discard: function (hero, skillid) {
     var s = hero + '-' + skillid;

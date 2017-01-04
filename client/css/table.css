@@ -34,12 +34,13 @@
 
 .table .enemy .skills.sidehand {
   margin-right: 38px;
-  right: 668px;
-  width: auto;
+  right: 670px;
+  width: 250px;
+  display: flex;
 }
 
 .table .enemy .skills.hand {
-  right: 244px;
+  right: 240px;
   width: 424px;
 }
 

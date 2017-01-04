@@ -216,7 +216,7 @@
   background: #c55f5f;
 }
 .card.enemy.units {
-  background: #be76e0;
+  background: #e3799c;
 }
 
 .card.skills {
@@ -626,12 +626,8 @@
   color: white;
 }
 
-.enemy .portrait .img {
+.enemy.heroes .portrait .img {
   transform: scaleX(-1);
-}
-
-.enemy.towers .portrait .img {
-  transform: scaleX(1);
 }
 
 /*DRAG*/

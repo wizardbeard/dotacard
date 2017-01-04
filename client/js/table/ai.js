@@ -5,7 +5,7 @@ game.ai = {
       game.ai.movesLoop = 5; // number of units per turn
       game.ai.noMovesLoop = 2; // if no action retry N times
       game.ai.lowChance = 0.3; // eg: if (r > low) choose random target
-      game.ai.highChance = 0.6; // eg: if (r > high) choose random move destiny
+      game.ai.highChance = 0.6; // eg: if (r > high)
     }
     if (game.ai.mode == 'normal') {
       game.ai.movesLoop = 8;
@@ -25,16 +25,24 @@ game.ai = {
     //game.message.text(game.data.ui.enemymove);
     $('.map .ai').removeClass('ai');
     game.ai.currentmovesLoop = game.ai.movesLoop;
+    if (!game.currentData.moves) game.currentData.moves = [];
     // activate all passives, other sidehand skills strats per hero
     $('.enemydecks .sidehand .skills').each(function (i, el) {
       var card = $(el);
       game.ai.passives(card);
     });
+    //creep summon
+    $('.enemydecks .sidehand .units').each(function (i, el) {
+      var card = $(el);
+      game.ai.summon(card);
+    });
     // add combo data and strats
-    game.ai.combo();
+    game.ai.comboData();
     // move and end turn
     // choose strat and decide moves
-    game.timeout(400, game.ai.moveRandomCard);
+    
+    //console.log(game.currentData.moves); debugger
+    game.enemy.startMoving(game.ai.moveRandomCard);
   },
   moveRandomCard: function () {
     game.ai.resetData();
@@ -72,10 +80,34 @@ game.ai = {
     // loop nextMove
     game.timeout(100, function () {
       if (game.currentData.moves.length) {
+        //console.log(game.currentData.moves)
         game.enemy.autoMove(game.ai.nextMove);
       } else {
         game.ai.nextMove();
       }
+    });
+  },
+  nextMove: function () {
+    if (game.ai.currentmovesLoop > 0) {
+      if (game.currentData.moves.length) {
+        game.ai.currentmovesLoop -= 1;
+      } else {
+        game.ai.currentmovesLoop -= (1/game.ai.noMovesLoop);
+      }
+      game.timeout(100, game.ai.moveRandomCard);
+    } else {
+      game.ai.endTurn();
+    }
+  },
+  endTurn: function () { 
+    //debugger
+    // discard after N turns
+    $('.enemydecks .hand .skills').each(function (i, el) {
+      var card = $(el);
+      game.ai.skillsDiscard(card);
+    });
+    game.timeout(100, function () {
+      game.enemy.startMoving(game.single.endEnemyTurn);
     });
   },
   resetData: function () {
@@ -84,6 +116,15 @@ game.ai = {
     $('.map .card').each(function (i, el) {
       $(el).data('ai', game.ai.newData());
     });
+  },
+  summon: function (card) {
+    if (Math.random() > game.ai.highChance) {
+      var creep = card.data('type');
+      var enemyarea = $('.spot.free.enemyarea');
+      var r = parseInt(Math.random() * enemyarea.length);
+      var to = enemyarea.eq(r).getPosition();
+      game.currentData.moves.push('S:'+ game.map.mirrorPosition(to) +':' + creep);
+    }
   },
   passives: function (card) {
     // activate all pasives
@@ -250,7 +291,7 @@ game.ai = {
       card.data('ai', cardData);
     });
   },
-  combo: function () {
+  comboData: function () {
     var combos = [];
     $('.map .enemy.card:not(.towers)').each(function (i, el) {
       /*
@@ -543,18 +584,6 @@ game.ai = {
     //console.log(move);
     game.currentData.moves.push(move.join(':'));
   },
-  nextMove: function () {
-    if (game.ai.currentmovesLoop > 0) {
-      if (game.currentData.moves.length) {
-        game.ai.currentmovesLoop -= 1;
-      } else {
-        game.ai.currentmovesLoop -= (1/game.ai.noMovesLoop);
-      }
-      game.timeout(100, game.ai.moveRandomCard);
-    } else {
-      game.ai.endTurn();
-    }
-  },
   skillsDiscard: function (card) {
     // discard counter
     var n = card.data('ai discard');
@@ -569,18 +598,6 @@ game.ai = {
       n = undefined;
     }
     card.data('ai discard', n);
-  },
-  endTurn: function () { 
-    //debugger
-    // discard after N turns
-    $('.enemydecks .hand .skills').each(function (i, el) {
-      var card = $(el);
-      game.ai.skillsDiscard(card);
-    });
-    //console.log(game.currentData.moves);
-    game.timeout(100, function () {
-      game.enemy.startMoving(game.single.endEnemyTurn);
-    });
   },
   heroes: {
     am: {

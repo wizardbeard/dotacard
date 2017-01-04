@@ -37,13 +37,7 @@ game.units = {
       }
     });
   },
-  creepSummon: function (event) {
-    var slot = $(this);
-    game.states.table.animateCast(game.selectedCard, slot, event, function () {
-      game.selectedCard.addClass('done');
-      game.selectedCard.place(slot);
-      game.selectedCard.trigger('summon');
-      game.selectedCard.unselect();
-    });
+  clone: function (card) {
+    return card.clone().data(card.data());
   }
 };
