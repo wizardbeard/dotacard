@@ -145,7 +145,7 @@ game.player = {
         creep = game.selectedCard.data('type');
     if ( game.isPlayerTurn() &&
          target.hasClass('free')) {
-      game.currentMoves.push('S:' + to + ':' + creep);
+      if (game.mode == 'online') game.currentMoves.push('S:' + to + ':' + creep);
       game.highlight.clearMap();
       game.states.table.animateCast(game.selectedCard, target, event, function () {
         game.selectedCard.addClass('done');

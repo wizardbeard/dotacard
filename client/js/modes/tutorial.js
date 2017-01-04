@@ -193,6 +193,9 @@ game.tutorial = {
     game.turn.el.removeClass('show');
     game.tutorial.axebaloon.fadeIn('slow');
     game.tutorial.message.html(game.data.ui.axedone);
+    game.enemy.unitsDeck.children('.ranged').first().addClass('flipped').appendTo(game.enemy.skills.sidehand);
+    game.enemy.unitsDeck.children('.melee').first().addClass('flipped').clone().addClass('flipped').appendTo(game.enemy.skills.sidehand);
+    game.enemy.unitsDeck.children('.melee').first().appendTo(game.enemy.skills.sidehand);
     $('.enemy .am-blink').first().appendTo(game.enemy.skills.hand);
     $('.enemy .kotl-leak').first().appendTo(game.enemy.skills.hand);
     $('.enemy .kotl-mana').first().appendTo(game.enemy.skills.hand);
@@ -204,6 +207,9 @@ game.tutorial = {
     game.tutorial.message.html(game.data.ui.axeenemymove);
     game.message.html(game.data.ui.enemymove);
     game.currentData.moves = [
+      'S:'+game.map.mirrorPosition('H2')+':ranged',
+      'S:'+game.map.mirrorPosition('H3')+':melee',
+      'S:'+game.map.mirrorPosition('G3')+':melee',
       'C:'+game.map.mirrorPosition('C1')+':'+game.map.mirrorPosition('D3')+':blink:am',
       'M:'+game.map.mirrorPosition('D1')+':'+game.map.mirrorPosition('C2'),
       'M:'+game.map.mirrorPosition('E1')+':'+game.map.mirrorPosition('E2'),
