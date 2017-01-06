@@ -18,9 +18,9 @@ game.states.choose = {
   start: function () {
     $('.choose .buttonbox .button').not('.back').hide();    
     var hero = localStorage.getItem('choose');
-    if (game.mode && game[game.mode].chooseStart) game[game.mode].chooseStart(hero);
     this.sort();
     this.selectFirst();
+    if (game.mode && game[game.mode].chooseStart) game[game.mode].chooseStart(hero);
   },
   buildDeck: function (pickDeck) {
     game.library.buildSkills();
