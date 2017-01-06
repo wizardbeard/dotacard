@@ -149,15 +149,15 @@ game.states.choose = {
     $('.slot').each(function () {
       var slot = $(this), card;
       if (slot.hasClass('available')) {
-        card = $('.pickbox .card').not('.dead').randomCard('noseed');
+        card = $('.pickbox .card').not('.dead, .hidden').randomCard('noseed');
         slot.append(card).removeClass('available selected');
       }
-      if ($('.choose .card.selected').length === 0) { game.states.choose.selectFirst(); }
     });
+    game.states.choose.selectFirst();
   },
   playerpicks: function () {
     game.player.picks = [];
-    $('.slot').each(function () {
+    $('.slot').each(function () { 
       var slot = $(this), card = slot.find('.card');
       game.player.picks[slot.data('slot')] = card.data('hero');
       if (game.player.picks.length === 5) {
@@ -170,7 +170,7 @@ game.states.choose = {
     var t;
     if (!game.states.choose.videoPlaying && link) {
       game.states.choose.videoPlaying = true;
-      game.states.choose.video.attr({'src': 'https://www.youtube.com/embed/' + link}).show();
+      game.states.choose.video.attr({'src': 'https://www.youtube.com/embed/' + link + '?autoplay=1'}).show();
       t = game.states.choose.intro.text();
       t = '⏹' + t.substr(1);
       game.states.choose.intro.text(t).addClass('playing');
@@ -207,7 +207,7 @@ game.states.choose = {
   clear: function () {
     setTimeout(function () {
       $('.slot .card.skills').appendTo(game.library.skills);
-      $('.pickbox .card').show();
+      $('.pickbox .card').show().removeClass('hidden');
       $('.slot').addClass('available').show();
       this.mydeck.attr('disabled', false);
       this.randombt.attr('disabled', false);
@@ -216,8 +216,8 @@ game.states.choose = {
       this.pickedbox.hide();
       $('.choose .buttonbox .button').not('.back').hide();
       this.playVideo(); //clear video iframe
-      this.sort();
       $('.slot .card.heroes').prependTo(this.pickDeck).on('mousedown.choose touchstart.choose', game.states.choose.select);
+      this.sort();
     }.bind(this), 100);
   }
 };

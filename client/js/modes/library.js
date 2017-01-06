@@ -1,12 +1,6 @@
 game.library = {
   build: function () {
     game.library.buildSkills();
-    game.states.choose.pickedbox.show();
-    game.states.choose.intro.show();
-    game.states.choose.librarytest.show();
-    game.loader.removeClass('loading');
-    $('.slot').removeClass('available');
-    game.message.text(game.data.ui.library);
     game.seed = new Date().valueOf();
     game.id = btoa(game.seed);
   },
@@ -25,6 +19,12 @@ game.library = {
     }
   },
   chooseStart: function (hero) {
+    game.states.choose.pickedbox.show();
+    game.states.choose.intro.show();
+    game.states.choose.librarytest.show();
+    game.loader.removeClass('loading');
+    $('.slot').removeClass('available');
+    game.message.text(game.data.ui.library);
     if (hero) game.states.choose.selectHero(hero, 'force');
     else game.states.choose.selectFirst('force');
   },

@@ -32,8 +32,9 @@ game.tutorial = {
   },
   chooseStart: function () {
     game.states.choose.selectFirst('force');
-    $('.pickbox .card').hide();
-    $('.am, .cm, .pud, .ld, .nyx', '.pickbox').show();
+    game.states.choose.randombt.show();
+    $('.pickbox .card').addClass('hidden');
+    $('.am, .cm, .pud, .ld, .nyx', '.pickbox').removeClass('hidden');
     game.states.choose.counter.show().text(game.data.ui.clickpick);
   },
   pick: function () {
