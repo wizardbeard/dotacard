@@ -66,10 +66,9 @@
 
 .choose .video {
   z-index: 30;
-  transform: translate(-50%,-50%) translateZ(1px);
   position: absolute;
-  top: 205px;
-  left: 50%;
+  top: 0;
+  left: 0;
   width: 760px;
   height: 340px;
 }

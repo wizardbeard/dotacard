@@ -47,6 +47,7 @@ game.library = {
         game.library.hero = card.data('hero');
         localStorage.setItem('choose', game.library.hero);
       }
+      game.states.choose.intro.attr('disabled', !game.data.heroes[game.library.hero].intro);
       game.states.choose.librarytest.attr('disabled', !!card.data('disable'));
     }
     game.states.choose.playVideo();
@@ -76,7 +77,7 @@ game.library = {
   showIntro: function () {
     var hero = game.library.hero,
         link = game.data.heroes[hero].intro;
-    if (link) game.states.choose.playVideo(link);
+    if (link && !$(this).attr('disabled')) game.states.choose.playVideo(link);
   },
   startPlayerTurn: function () {
     game.turn.beginPlayer(function () {

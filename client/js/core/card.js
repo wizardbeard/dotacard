@@ -566,7 +566,7 @@ game.card = {
       }
     } else if (this.hasClass('units')) {
       var side = this.side();
-      evt.source.damage(game.creepDeathDamage, game[side].tower, game.data.ui.pure);
+      if (evt.source.side() != side) evt.source.damage(game.creepDeathDamage, game[side].tower, game.data.ui.pure);
       this.detach();
     } else { this.detach(); }
     return this;

@@ -13,7 +13,7 @@ game.states.choose = {
     this.mydeck = $('<div>').addClass('mydeck button highlight').text(game.data.ui.mydeck).attr({title: game.data.ui.mydecktitle}).on('mouseup touchend', this.savedDeck).appendTo(this.buttonbox);
     this.librarytest = $('<div>').addClass('librarytest button highlight').text(game.data.ui.librarytest).attr({title: game.data.ui.librarytesttitle}).on('mouseup touchend', this.testHeroClick).appendTo(this.buttonbox);
     this.el.append(this.buttonbox).append(this.pickedbox);
-    this.video = $('<iframe>').hide().addClass('video').attr({'allowfullscreen': true, 'frameborder': 0, 'width': 760, 'height': 340}).appendTo(this.el);
+    this.video = $('<iframe>').hide().addClass('video').attr({'allowfullscreen': true, 'frameborder': 0, 'width': 760, 'height': 340}).appendTo(this.pickbox);
   },
   start: function () {
     $('.choose .buttonbox .button').not('.back').hide();    

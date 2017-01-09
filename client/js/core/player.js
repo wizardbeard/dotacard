@@ -148,11 +148,11 @@ game.player = {
       if (game.mode == 'online') game.currentMoves.push('S:' + to + ':' + creep);
       game.highlight.clearMap();
       game.states.table.animateCast(game.selectedCard, target, event, function () {
-        game.selectedCard.addClass('done');
-        game.selectedCard.unselect();
-        game.selectedCard.place(target);
-        game.selectedCard.trigger('summon');
-      });
+        this.creep.addClass('done');
+        this.creep.unselect();
+        this.creep.place(this.slot);
+        this.creep.trigger('summon');
+      }.bind({creep: game.selectedCard, slot: target}));
     }
   },
   discard: function (skill) {

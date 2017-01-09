@@ -204,6 +204,8 @@ game.highlight = {
       card.inRange(range, function (neighbor) {
         var card = $('.card', neighbor);
         if (card.hasClass('enemy')) { card.addClass('attacktarget').on('mouseup.highlight touchend.highlight', game.player.attack); }
+        if (card.hasAllClasses('player units') && 
+            card.data('current hp') < card.data('hp')/2 ) { card.addClass('attacktarget').on('mouseup.highlight touchend.highlight', game.player.attack); }
       });
     }
     return card;
