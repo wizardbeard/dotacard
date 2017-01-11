@@ -8,7 +8,7 @@ A **Defense Of The Ancients** card game with the heroes you love and all their s
 
 You are free to [fork][4] or [download][5] and help to build the game, you can even make a hero and [win real cash!][6]
 
-In our Wiki page you can ckeck out the [game rules][7] and much more.
+In our Wiki page you can ckeck out the [how to play with real cards][7] and much more.
 
 Please report any [sugestions or issues][8] here at github.
 
@@ -46,12 +46,12 @@ Special thanks to:
 
 [5]: https://github.com/rafaelcastrocouto/dotacard/archive/gh-pages.zip
 
-[6]: https://github.com/rafaelcastrocouto/dotacard/wiki/Dotacard-Wiki#how-to-develop-a-new-hero
+[6]: https://github.com/rafaelcastrocouto/dotacard/wiki/How-to-develop-a-new-hero
 
-[7]: https://github.com/rafaelcastrocouto/dotacard/wiki/Dotacard-Wiki#game-rules
+[7]: https://github.com/rafaelcastrocouto/dotacard/wiki
 
 [8]: https://github.com/rafaelcastrocouto/dotacard/issues/new
 
 [9]: http://steamcommunity.com/sharedfiles/filedetails/?id=500624204
 
-[10]: https://github.com/rafaelcastrocouto/dotacard/wiki/Dotacard-Wiki#how-to-setup-a-local-server
+[10]: https://github.com/rafaelcastrocouto/dotacard/wiki/How-to-setup-a-local-server
