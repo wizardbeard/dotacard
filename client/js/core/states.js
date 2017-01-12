@@ -49,7 +49,7 @@ game.states = {
       }.bind(this, state, recover));
     }
   },
-  backState: function () {
+  back: function () {
     if (!game.backState) game.backState = localStorage.getItem('backstate');
     game.states.changeTo(game.backState);
   }

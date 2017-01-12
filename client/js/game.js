@@ -19,6 +19,7 @@ var game = {
   seed: 0,
   id: null,
   timeoutArray: [],
+  alertColor: 'rgba(255,255,255,1)',
   skills: {},
   data: {},
   //json {heroes, skills, ui}
@@ -141,6 +142,7 @@ var game = {
       type: 'warning',
       buttonsStyling: false,
       confirmButtonText: game.data.ui.ok,
+      background: game.alertColor
     }).then(cb);
   },
   confirm: function(cb, text) {
@@ -152,6 +154,7 @@ var game = {
       buttonsStyling: false,
       confirmButtonText: game.data.ui.yes,
       cancelButtonText: game.data.ui.no,
+      background: game.alertColor
     }).then(cb);
   },
   error: function(cb) {
@@ -164,6 +167,7 @@ var game = {
       buttonsStyling: false,
       confirmButtonText: game.data.ui.yes,
       cancelButtonText: game.data.ui.no,
+      background: game.alertColor
     }).then(cb);
   },
   reset: function() {

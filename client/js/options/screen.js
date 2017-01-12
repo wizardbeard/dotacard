@@ -17,7 +17,6 @@ game.screen = {
     game.container.css('transform', 'translate3d(-50%, -50%, 0) scale('+scale+')');
     if (game.screen.resolution !== 'auto') scale = 1;
     $('.sweet-alert').css('transform', 'translate3d(-50%, -50%, 0) scale('+scale+')');
-
   },
   rememberResolution: function () {
     var res, rememberedres = localStorage.getItem('resolution');
@@ -38,4 +37,8 @@ game.screen = {
     game.container.removeClass(game.screen.resolutions.join(' ')).addClass(resolution);
     localStorage.setItem('resolution', resolution);
   },
+  toggleFS: function () {
+    if (BigScreen.enabled) BigScreen.toggle();
+    else $(this).attr('disabled', true);
+  }
 };
