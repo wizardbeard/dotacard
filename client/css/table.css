@@ -50,7 +50,8 @@
   right: 630px;
   width: 265px;
   display: flex;
-  flex-direction: row-reverse;
+  /* flex-direction: row-reverse; */
+  justify-content: flex-end;
 }
 
 .table .player .skills.hand {
@@ -63,7 +64,7 @@
   width: 200px;
   height: 300px;
   position: absolute;
-  top: 30px;
+  top: 28px;
   right: 5px;
   border-radius: 10px;
   perspective: 600px;
@@ -79,7 +80,7 @@
 .table .buttonbox {
   position: absolute;
   right: 0;
-  top: 336px;
+  top: 330px;
   width: 210px;
 }
 

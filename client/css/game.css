@@ -108,14 +108,14 @@ noscript {
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
   color: #fff;
-  background-color: #859890;
-  background: url("../img/banner.jpg");
+  background-image: url("../img/banner.jpg");
   background-size: 111%;
   background-position: 50%;
+  background-color: #859890;
 }
 
 .game-container.finished {
-  background-color: #3f8c80;
+  background-color: #b2af9e;
   background-image: url("../img/bkg/polygon-light.jpg");
 }
 

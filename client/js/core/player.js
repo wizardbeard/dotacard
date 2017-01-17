@@ -8,7 +8,7 @@ game.player = {
         if (game.mode == 'library') {
           var card = deck.data('cards')[0];
           card.addClass('player').on('mousedown touchstart', game.card.select);
-          card.place(game.map.toPosition(4, 4));
+          card.place(game.map.toPosition(3, 4));
           card.on('action', game.library.action).on('death', game.library.action);
         } else {
           var x = 2, y = 4;
@@ -44,11 +44,9 @@ game.player = {
     }
   },
   buyHand: function () {
-    if (game.isPlayerTurn()) {
-      for (var i = 0; i < game.player.cardsPerTurn; i += 1) {
-        game.player.buyCard();
-      }
-      game.player.buyCreeps();
+    game.player.buyCreeps();
+    for (var i = 0; i < game.player.cardsPerTurn; i += 1) {
+      game.player.buyCard();
     }
   },
   buyCreeps: function (force) {

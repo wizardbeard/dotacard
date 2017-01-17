@@ -70,6 +70,7 @@ game.library = {
       game.skill.build('player', 'single');
       game.skill.build('enemy');
       $('.map .player.card.'+game.library.hero).select();
+      game.player.buyCreeps(true);
       game.library.buildHand();
       game.library.startPlayerTurn();
     });

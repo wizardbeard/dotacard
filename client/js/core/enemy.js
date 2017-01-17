@@ -36,11 +36,9 @@ game.enemy = {
     }
   },
   buyHand: function () {
-    if (!game.isPlayerTurn()) {
-      for (var i = 0; i < game.enemy.cardsPerTurn; i += 1) {
-        game.enemy.buyCard();
-      }
-      game.enemy.buyCreeps();
+    game.enemy.buyCreeps();
+    for (var i = 0; i < game.enemy.cardsPerTurn; i += 1) {
+      game.enemy.buyCard();
     }
   },
   buyCreeps: function (force) {
@@ -70,9 +68,12 @@ game.enemy = {
     else game.timeout(1000, game.enemy.movesEnd);
   },
   autoMove: function (ai) {
-    var from, to, hero, skillid;
+    var from, to, hero, skillid, move;
     if (ai) move = game.currentData.moves[0].split(':');
-    else move = game.currentMoves[game.enemy.autoMoveCount].split(':');
+    else {
+      var m = game.currentMoves[game.enemy.autoMoveCount];
+      if (m.length) move = m.split(':');
+    }
     if (move.length) {
       $('.enemyMoveHighlight').removeClass('enemyMoveHighlight');
       $('.enemyMoveHighlightTarget').removeClass('enemyMoveHighlightTarget');
