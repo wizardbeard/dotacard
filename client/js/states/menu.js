@@ -18,8 +18,7 @@ game.states.menu = {
       game.setMode('library');
       game.states.changeTo('choose');
     });
-    this.decks = $('<div>').addClass('button').appendTo(this.menu).attr({title: game.data.ui.mydeck}).text(game.data.ui.mydeck).attr('disabled', true);
-    this.credits = $('<a>').addClass('button').appendTo(this.menu).attr({title: game.data.ui.choosecredits, href: 'https://github.com/rafaelcastrocouto/dotacard/graphs/contributors', target: '_blank'}).text(game.data.ui.credits);
+    this.credits = $('<a>').addClass('button').appendTo(this.menu).attr({title: game.data.ui.choosecredits, href: 'https://github.com/rafaelcastrocouto/dotacard/graphs/contributors', target: '_blank'}).html(game.data.ui.credits+' <span class="external">➔</span>');
   },
   start: function () {
     game.clear();

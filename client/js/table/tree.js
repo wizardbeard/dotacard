@@ -11,7 +11,7 @@ game.tree = {
     return tree;
   },
   place: function () {
-    var treeSpots = 'A1 A2 B2';
+    var treeSpots = 'A1 A3 B1';
     $.each(treeSpots.split(' '), function () {
       game.tree.build(this, 'rad');
       game.tree.build(game.map.mirrorPosition(this), 'dire');

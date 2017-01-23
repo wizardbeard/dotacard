@@ -38,7 +38,7 @@
   "axemove": "<b>Drag or click</b> on the green arrows to move all your 5 heroes",
   "axedone": "Your turn is over,<br>wait for end of the<br><b>enemy turn</b>",
   "axeenemymove": "Your <b>enemy is moving</b>...<br>get ready to battle!",
-  "axeattack": "<b>Select</b> one of your heroes close to the enemy and <b>click</b> on the <b>red arrow</b> to attack",
+  "axeattack": "<b>Select</b> one of your cards close to the enemy and <b>click</b> on the <b>red arrow</b> to attack",
   "axeskillselect": "Your <b>skill cards</b> are picked at the beginning of your turn. <b>Click</b> to select a passive skill",
   "axeskill": " <b>Drag or click</b> on a <b>blue arrow</b> to use skill cards. Passive skills do not end the turn and go to your <b>left hand</b>",
   "axetoggle": "<b>Toggle skills</b> also<br> do not end the turn and go to your left hand. You can use them for free",

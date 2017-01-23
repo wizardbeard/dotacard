@@ -288,10 +288,25 @@ input:focus {
   }
 }
 
+.external {
+  position: relative;
+  transform: translate(3px, -6px) scale(0.65) rotate(-45deg);
+  display: inline-block;
+}
+.external:after {
+  position: absolute;
+  content: "◇";
+  top: -2px;
+  left: -6px;
+  z-index: -1;
+  transform: scale(1.7);
+  display: block;
+}
 .button, button, input[type=button], input[type=submit] {
   display: inline-block;
   text-align: center;
   font-size: 16px;
+  line-height: 30px;
   cursor: pointer;
   padding: 8px 12px;
   border: 0;
@@ -305,7 +320,6 @@ input:focus {
   position: relative;
   top: -3px;
   transition: all 0.2s;
-  /* cursor: url("../img/cursor/cursor.png"), url("../img/cursor/cursor.cur"), pointer; */
   transform: translateZ(0);
   min-width: 75px;
   min-height: 30px;
@@ -386,6 +400,7 @@ button.sweet-cancel:after {
   z-index: -1;
   opacity: 0.2;
 }
+
 label {
   display: block;
   padding: 0 2px;
@@ -486,7 +501,7 @@ label span {
 }
 
 .menu h1 {
-  margin-bottom: 6px;
+  margin-bottom: 20px;
 }
 
 .menu .box {
@@ -495,8 +510,11 @@ label span {
 }
 
 .menu .box .button {
-  width: 216px;
-  margin-bottom: -5px;
+  height: 36px;
+  line-height: 36px;
+  margin: 12px;
+  display: block;
+  font-size: 17px;
 }
 
 .deck {

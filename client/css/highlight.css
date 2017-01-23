@@ -1,6 +1,11 @@
 .states .map .spot.movearea {
   cursor: pointer;
-  background: rgba(100,255,150,0.1);
+  background: rgba(200,255,230,0.2);
+  animation: 1s blinkmovearea infinite;
+}
+@keyframes blinkmovearea {
+  0%, 100% {background: rgba(200,255,230,0.1);}
+  50% {background: rgba(200,255,230,0.3);}
 }
 
 .map .spot.movearea.drop, .states .map .spot.movearea:hover {
@@ -21,7 +26,7 @@
 .slot.available:after, .map .movearea:after {
   width: 120px;
   height: 12px;
-  background: springgreen;
+  background: #16c06a;
   left: 40px;
   bottom: 100px;
   border-radius: 6px;
@@ -36,7 +41,7 @@
   width: 50px;
   height: 50px;
   border: 20px solid transparent;
-  border-right: 12px solid springgreen;
+  border-right: 12px solid #0a9750;
   border-bottom: 12px solid #16c06a;
   background: transparent;
   left: 60px;
@@ -160,9 +165,13 @@
 
 .map .spot.targetarea {
   cursor: pointer;
-  background: rgba(100,100,255,0.2);
+  background: rgba(200,200,255,0.2);
+  animation: 1s blinktargetarea infinite;
 }
-
+@keyframes blinktargetarea {
+  0%, 100% {background: rgba(200,200,255,0.1);}
+  50% {background: rgba(200,200,255,0.3);}
+}
 .map .spot.targetarea.drop, .map .spot.targetarea:hover {
   background: rgba(100,100,255,0.4);
 }
@@ -178,7 +187,7 @@
   width: 50px;
   height: 50px;
   border: 20px solid transparent;
-  border-right: 12px solid dodgerblue;
+  border-right: 12px solid #0957a4;
   border-bottom: 12px solid #1871c8;
   background: transparent;
   left: 60px;
@@ -220,7 +229,7 @@
   width: 150px;
   height: 50px;
   border: 0px solid transparent;
-  border-top: 12px solid dodgerblue;
+  border-top: 12px solid #1871c8;
   background: transparent;
   left: 30px;
   bottom: 30px;
@@ -264,11 +273,13 @@
 }
 
 .map .casttarget {
-  background: #a3cffc;
+  box-shadow: 0 0 0 10px dodgerblue;
+  /*filter: brightness(1.1);*/
+  /*animation: blinkbright 1s infinite;*/
 }
-
-.map .casttarget fieldset {
-  opacity: 0.8;
+@keyframes blinkbright {
+  0%, 100% {filter: brightness(1);}
+  50% {filter: brightness(1.2);}
 }
 
 .map .casttarget:after, .map .casttarget:before {
@@ -282,7 +293,7 @@
   width: 50px;
   height: 50px;
   border: 20px solid transparent;
-  border-right: 12px solid dodgerblue;
+  border-right: 12px solid #0957a4;
   border-bottom: 12px solid #1871c8;
   background: transparent;
   left: 60px;
@@ -308,7 +319,7 @@
   width: 150px;
   height: 50px;
   border: 0px solid transparent;
-  border-top: 12px solid dodgerblue;
+  border-top: 12px solid #1871c8;
   background: transparent;
   left: 30px;
   bottom: 30px;

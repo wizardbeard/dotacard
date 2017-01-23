@@ -80,10 +80,12 @@
 
 @keyframes blink {
   0%, 100% {
+    /*filter: brightness(1);*/
     box-shadow: 0 0 0 6px rgba(0,0,0,0);
   }
 
   50% {
+    /*filter: brightness(1.3);*/
     box-shadow: 0 0 0 6px white;
   }
 }
@@ -96,10 +98,12 @@
 @keyframes cardblink {
   0%, 100% {
     box-shadow: 0 0 0 10px rgba(0,0,0,0);
+    /*filter: brightness(1)*/
   }
 
   50% {
     box-shadow: 0 0 0 10px white;
+    /*filter: brightness(1.4)*/
   }
 }
 

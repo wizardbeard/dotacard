@@ -350,7 +350,7 @@
 .card .buffs {
   position: absolute;
   bottom: -3px;
-  left: 6px;
+  left: 3px;
 }
 
 .card .buffs .buff {
@@ -361,6 +361,7 @@
 }
 
 .card .buffs .buff .img , .card .buffs .buff .overlay {
+  border-radius: 50%;
   box-shadow: 0 0 8px rgba(0,0,0,0.5) inset;
   width: 34px;
   height: 34px;
@@ -680,10 +681,24 @@
   display: none;
 }
 
-.map .card h1, .map .card .desc, .map .card .buff, .card.dragTargetClone.fromMap h1, .card.dragTargetClone.fromMap .desc, .card.dragTargetClone.fromMap .buff {
+.map .card h1, 
+.map .card .desc, 
+/*.map .card .buff, */
+.card.dragTargetClone.fromMap h1, 
+.card.dragTargetClone.fromMap .desc, 
+.card.dragTargetClone.fromMap .buff {
   display: none;
 }
-
+.map .card .buffs {
+  position: relative;
+  top: -28px; left: 0px;
+}
+.map .card .buff {
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #fff;
+  margin-right: -16px;
+}
 .map .card fieldset, .card.dragTargetClone.fromMap fieldset {
   padding: 0;
   margin: 18px 5px;
