@@ -20,7 +20,8 @@
     "damage": 12,
     "armor": 2,
     "resistance": 2,
-    "description": "Nuker, Support, Disabler"
+    "description": "Nuker, Support, Disabler",
+    "intro": "um5z4d9SFkI"
   },
 
   "kotl":{
@@ -68,7 +69,8 @@
     "damage": 14,
     "armor": 2,
     "resistance": 2,
-    "description": "Initiator, Nuker, Disabler, Durable"
+    "description": "Initiator, Nuker, Disabler, Durable",
+    "intro": "hExBCxjiKsI"
   },
 
   "wk":{
