@@ -428,6 +428,7 @@ label span {
 .log input[type=submit] {
   height: 40px;
   width: 100px;
+  line-height: 16px;
 }
 
 .log .steel {

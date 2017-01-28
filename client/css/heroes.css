@@ -156,11 +156,19 @@
   background-image: url("../img/heroes/ld.jpg");
 }
 
-.map .ld.transformed.heroes .img, .ld-ult .img, .buffs .buff.ld-ult .img {
+.ld-ult .img, .map .ld.transformed.heroes .buffs .buff.ld-ult .img, .buffs .buff.ld-ult .img {
   background-image: url("../img/skills/ld/ult.jpg");
 }
 
+.map .ld.transformed.heroes .img {
+  background-image: url("../img/skills/ld/ult-form.jpg");
+}
+
 .ld-summon .img, .buffs .buff.ld-summon .img {
+  background-image: url("../img/skills/ld/lone_druid_bear_summon.jpg");
+}
+
+.map .ld-summon .img {
   background-image: url("../img/skills/ld/lone_druid_spirit_bear.jpg");
 }
 
