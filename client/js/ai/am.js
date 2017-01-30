@@ -55,21 +55,25 @@ game.heroesAI.am = {
         targets: towerBlinkSpots
       });
     }
-    var hasUlt = $('.enemydecks .hand .skills.am-blink');
+    var cardInUltRange = [];
+    var hasUlt = $('.enemydecks .hand .skills.am-ult');
     if (hasUlt.length
         /*opponent missing cards < N ||*/
         /*N ememies in target range ||*/
         /*after N turns*/) {
-      card.inRange(6, function (spot) {
+      card.inRange(2, function (spot) {
         var cardInRange = $('.card', spot);
         if (cardInRange.length && cardInRange.hasClasses('enemy')) {
-          cardData['cast-strats'].push({
-            priority: 20,
-            skill: 'ult',
-            targets: [cardInRange]
-          });
+          cardInUltRange.push(cardInRange);
         }
       });
+      if (cardInUltRange.length) {
+        cardData['cast-strats'].push({
+          priority: 20,
+          skill: 'ult',
+          targets: cardInUltRange
+        });
+      } 
     }
     card.data('ai', cardData);
   },

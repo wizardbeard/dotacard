@@ -109,7 +109,7 @@ noscript {
   transform: translate3d(-50%, -50%, 0);
   color: #fff;
   background-image: url("../img/banner.jpg");
-  background-size: 111%;
+  background-size: cover;
   background-position: 50%;
   background-color: #859890;
 }
@@ -478,7 +478,7 @@ label span {
 }
 
 .bkgdeck .ld {
-  transform: translate3d(800px, -45px, -50px) rotateY(-60deg) rotateZ(32deg) rotateX(-15deg);
+  transform: translate3d(787px, -44px, -69px) rotateY(-61deg) rotateZ(34deg) rotateX(-25deg);
 }
 
 .bkgdeck .wk {
@@ -486,19 +486,19 @@ label span {
 }
 
 .bkgdeck .cm {
-  transform: translate3d(960px, 130px, -160px) rotateY(-90deg) rotateZ(35deg) rotateX(-5deg);
+  transform: translate3d(970px, 90px, -184px) rotateY(-85deg) rotateZ(35deg) rotateX(-5deg);
 }
 
 .bkgdeck .pud {
-  transform: translate(-120px, -60px) translateZ(-140px) rotateY(50deg) rotateZ(-36deg) rotateX(-2deg);
+  transform: translate(-65px, -60px) translateZ(-140px) rotateY(50deg) rotateZ(-36deg) rotateX(-2deg);
 }
 
 .bkgdeck .am {
-  transform: translate(-310px, 130px) translateZ(-290px) rotateY(70deg) rotateZ(-35deg) rotateX(5deg);
+  transform: translate(-255px, 130px) translateZ(-290px) rotateY(70deg) rotateZ(-35deg) rotateX(5deg);
 }
 
 .bkgdeck .kotl {
-  transform: translate(-66px, -130px) translateZ(-323px) rotateY(40deg) rotateZ(-39deg) rotateX(-18deg);
+  transform: translate(-5px, -130px) translateZ(-323px) rotateY(40deg) rotateZ(-39deg) rotateX(-18deg);
 }
 
 .menu h1 {
