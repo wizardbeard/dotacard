@@ -157,6 +157,8 @@ game.skill = {
   },
   summon: function (skill) {
     var unit = skill.clone().addClass('units summoned').removeClass('skills selected flipped').on('mousedown touchstart', game.card.select);
+    if (game.mode == 'library') unit.on('action', game.library.action);
+    unit.find('legend').text(skill.data('summon name'));
     unit.find('.description').remove();
     unit.data('summon', skill);
     unit.data('summoner', this);

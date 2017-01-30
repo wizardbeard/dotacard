@@ -224,7 +224,8 @@
 
   "ld": {
     "summon": {
-      "name": "Spirit Bear",
+      "name": "Summon Spirit Bear",
+      "summon name": "Spirit Bear",
       "type": "Active",
       "hand": "Right",
       "deck": "Buy",

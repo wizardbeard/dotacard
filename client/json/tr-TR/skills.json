@@ -223,7 +223,8 @@
 
   "ld": {
     "summon": {
-      "name": "Spirit Bear",
+      "name": "Summon Spirit Bear",
+      "summon name": "Spirit Bear",
       "type": "Aktif",
       "hand": "Sağ",
       "deck": "Satın Al",

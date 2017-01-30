@@ -64,7 +64,7 @@ game.ai = {
         //per hero defend
         if (card.hasClass('heroes')) {
           var hero = card.data('hero');
-          game.ai.heroes[hero].defend(card);
+          game.heroesAI[hero].defend(card);
         }
       });
       // add per hero data and strats
@@ -285,8 +285,8 @@ game.ai = {
       //per hero play
       if (card.hasClass('heroes')) {
         var hero = card.data('hero');
-        cardData.strats[game.ai.heroes[hero].move.default] += 8;
-        game.ai.heroes[hero].play(card, cardData);
+        cardData.strats[game.heroesAI[hero].move.default] += 8;
+        game.heroesAI[hero].play(card, cardData);
       }
       card.data('ai', cardData);
     });
@@ -464,8 +464,8 @@ game.ai = {
     if (action == 'any') {
       var hero = card.data('hero');
       if (hero &&
-          game.ai.heroes[hero] &&
-          game.ai.heroes[hero].action == 'attack' &&
+          game.heroesAI[hero] &&
+          game.heroesAI[hero].action == 'attack' &&
           cardData['can-attack']) {
         action = 'attack';
       } else if (cardData['can-cast']) {
@@ -657,17 +657,23 @@ game.ai = {
             targets: towerBlinkSpots
           });
         }
-        /*
-        if (opponent missing cards < N ||
-            N ememies in target range ||
-            after N turns)
-          
-          cardData['cast-strats'].push({
-            priority: 20,
-            skill: 'ult',
-            targets: [target]
+        var hasUlt = $('.enemydecks .hand .skills.am-blink');
+        if (hasUlt.length
+            /*opponent missing cards < N ||*/
+            /*N ememies in target range ||*/
+            /*after N turns*/) {
+          card.inRange(6, function (spot) {
+            var cardInRange = $('.card', spot);
+            if (cardInRange.length && cardInRange.hasClasses('enemy')) {
+              cardData['cast-strats'].push({
+                priority: 20,
+                skill: 'ult',
+                targets: [cardInRange]
+              });
+            }
           });
-        */
+        }
+        card.data('ai', cardData);
       },
       defend: function (card) {
         //console.log('defend-from-am');

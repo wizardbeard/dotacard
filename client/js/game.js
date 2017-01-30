@@ -29,6 +29,7 @@ var game = {
   // current game data
   currentState: 'noscript',
   //unsupported, load, log, menu, options, choose, table
+  heroesAI: {},
   start: function() {
     if (window.JSON && window.localStorage && window.btoa && window.atob && window.XMLHttpRequest) {
       if (!game.debug)

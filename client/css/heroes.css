@@ -30,7 +30,7 @@
   background-image: url("../img/heroes/cm.jpg");
 }
 
-.map .cm.heroes .img {
+.map .cm.heroes .portrait .img {
   background-position: 20%;
 }
 
@@ -50,7 +50,7 @@
   background-image: url("../img/skills/cm/crystal_maiden_freezing_field.jpg");
 }
 
-.map .cm-ult .img {
+.map .cm-ult .portrait .img {
   background-size: 300%;
   background-position: 65% 0%;
 }
@@ -160,7 +160,7 @@
   background-image: url("../img/skills/ld/ult.jpg");
 }
 
-.map .ld.transformed.heroes .img {
+.map .ld.transformed .img {
   background-image: url("../img/skills/ld/ult-form.jpg");
 }
 
@@ -168,8 +168,16 @@
   background-image: url("../img/skills/ld/lone_druid_bear_summon.jpg");
 }
 
-.map .ld-summon .img {
+.map .ld-summon .portrait .img,
+.fromMap.ld-summon .portrait .img,
+.selectedarea .units.ld-summon .img {
   background-image: url("../img/skills/ld/lone_druid_spirit_bear.jpg");
+}
+
+.map .ld-summon .portrait .img,
+.fromMap.ld-summon .portrait .img {
+  background-position: 76% 0%;
+  background-size: 300%;
 }
 
 .ld-bearreturn .img {
@@ -244,7 +252,7 @@
   background-image: url("../img/skills/pud/dismember.jpg");
 }
 
-.map .pud-ult .img, .fromMap.pud-ult .img {
+.map .pud-ult .portrait .img, .fromMap.pud-ult .portrait .img {
   background-size: 300%;
   background-position: 80% 90%;
 }

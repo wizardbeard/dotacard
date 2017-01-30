@@ -358,8 +358,18 @@
   margin-right: 3px;
   position: relative;
   pointer-events: auto;
+  transition: all 0.1s;
 }
 
+
+.selectedarea .card .buffs .buff:hover {
+  transform: scale(3);
+  z-index: 10;
+}
+.selectedarea .card .buffs .buff:hover .img {
+  border-radius: 2px;
+  border: 1px solid white;
+}
 .card .buffs .buff .img , .card .buffs .buff .overlay {
   border-radius: 50%;
   box-shadow: 0 0 8px rgba(0,0,0,0.5) inset;

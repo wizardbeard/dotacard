@@ -72,7 +72,7 @@ game.enemy = {
     if (ai) move = game.currentData.moves[0].split(':');
     else {
       var m = game.currentMoves[game.enemy.autoMoveCount];
-      if (m.length) move = m.split(':');
+      if (m && m.length) move = m.split(':');
     }
     if (move.length) {
       $('.enemyMoveHighlight').removeClass('enemyMoveHighlight');

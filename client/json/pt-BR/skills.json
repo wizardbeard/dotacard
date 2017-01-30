@@ -223,7 +223,8 @@
 
   "ld": {
     "summon": {
-      "name": "Espírito Ursor",
+      "name": "Invocar Espírito Urso",
+      "summon name": "Espírito Urso",
       "type": "Ativa",
       "hand": "Direita",
       "deck": "Comprar",
