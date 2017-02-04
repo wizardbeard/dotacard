@@ -1,4 +1,4 @@
-﻿game.map = {
+game.map = {
   extendjQuery: function () {
     $.fn.extend({
       getX: game.map.getX,
@@ -348,7 +348,7 @@
     }
   },
   radialStroke: function (r, cl) { //console.log(r,cl)
-    var spot = this, range = r;
+    var spot = this, range = r, cls = 'left right top bottom';
     if ( typeof(r) == 'string' ) range = game.map.getRangeInt(r);
     var radius, x, y, r2, l,
       fil = function (x, y, border) {

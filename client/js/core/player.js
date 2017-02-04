@@ -130,7 +130,9 @@ game.player = {
         hero && skillid && from && to &&
         !source.hasClass('done')) {
       source.cast(skill, to);
-      if (skill.data('type') !== game.data.ui.instant) {
+      if (skill.data('targets').indexOf(game.data.ui.summon) >= 0) {
+        target.addClass('done').removeClass('draggable');
+      } else if (skill.data('type') !== game.data.ui.instant) {
         source.addClass('done').removeClass('draggable');
       }
       if (game.mode == 'online') game.currentMoves.push('C:' + from + ':' + to + ':' + skillid + ':' + hero);

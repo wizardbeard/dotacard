@@ -80,11 +80,11 @@ game.skills.ld = {
     }
   },
   roar: {
-    cast: function (skill, source) {
+    cast: function (skill, source, target) {
       this.opponent = source.opponent();
       var range = skill.data('aoe range');
-      var x = game.map.getX(source);
-      var y = game.map.getY(source);
+      var x = game.map.getX(target);
+      var y = game.map.getY(target);
       //top to bottom to prevent blocking
       this.scare(game.map.getSpot(x + 1, y - 1));// top right
       this.scare(game.map.getSpot(  x  , y - 1));// top
@@ -96,15 +96,17 @@ game.skills.ld = {
       this.scare(game.map.getSpot(x - 1, y + 1));// bottom left
     },
     scare: function (spot) {
-      var target = spot.find('.card.' + this.opponent);
-      if (target.length) {
-        var x = game.map.getX(spot),
-            y = game.map.getY(spot);
-        var upSpot = game.map.getSpot(x, y - 1);
-        if (upSpot && upSpot.hasClass('free')) {
-          target.stopChanneling();
-          target.place(upSpot);
-          target.shake();
+      if (spot) {
+        var target = spot.find('.card.' + this.opponent);
+        if (target.length) {
+          var x = game.map.getX(spot),
+              y = game.map.getY(spot);
+          var upSpot = game.map.getSpot(x, y - 1);
+          if (upSpot && upSpot.hasClass('free')) {
+            target.stopChanneling();
+            target.place(upSpot);
+            target.shake();
+          }
         }
       }
     }

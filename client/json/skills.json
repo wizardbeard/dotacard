@@ -291,7 +291,7 @@
       "type": "Active",
       "hand": "Right",
       "deck": "Buy",
-      "targets": ["Self"],
+      "targets": ["Self", "Summon"],
       "range": "Melee",
       "aoe": "Radial",
       "aoe range": "Melee",

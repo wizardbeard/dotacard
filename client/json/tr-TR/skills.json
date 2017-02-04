@@ -201,6 +201,7 @@
       "description": "Düşman kahramanlara bir patlama gondererek etrafa saçar",
       "buff": {
         "duration": 4,
+        "miss": 80,
         "description": "Blinded"
       }
     },
@@ -290,7 +291,7 @@
       "type": "Aktif",
       "hand": "Sağ",
       "deck": "Satın Al",
-      "targets": ["AynÄ"],
+      "targets": ["Dövüş", "Yakarma"],
       "range": "Dövüş",
       "aoe": "Radyal",
       "aoe range": "Dövüş",
@@ -366,7 +367,6 @@
       "hand": "Sağ",
       "deck": "Satın Al",
       "targets": ["AynÄ"],
-      "duration": 2,
       "damage type": "Saf",
       "cards": 3,
       "stun": 3,
@@ -554,5 +554,5 @@
       }
     }
   }
-
+  
 }

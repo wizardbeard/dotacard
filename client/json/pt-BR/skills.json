@@ -201,6 +201,7 @@
       "description": "Uma luz cegante arremessa as unidades inimigas, fazendo com que errem ataques",
       "buff": {
         "duration": 4,
+        "miss": 80,
         "description": "Blinded"
       }
     },
@@ -290,7 +291,7 @@
       "type": "Ativa",
       "hand": "Direita",
       "deck": "Comprar",
-      "targets": ["Próprio"],
+      "targets": ["Próprio", "Invocação"],
       "range": "Perto",
       "aoe": "Radial",
       "aoe range": "Perto",
@@ -366,7 +367,6 @@
       "hand": "Direita",
       "deck": "Comprar",
       "targets": ["Próprio"],
-      "duration": 2,
       "damage type": "Puro",
       "cards": 3,
       "stun": 3,

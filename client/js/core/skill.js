@@ -96,11 +96,8 @@ game.skill = {
             }
           });
         }
-        if (game.mode === 'library') game.timeout(800, function () {
-
-          //$('.map .player').not('.done').select();
-        }); 
-        else game.timeout(300, function () { //console.trace('castend')
+        if (game.mode !== 'library') game.timeout(300, function () { 
+          //console.trace('castend')
           this.skill.discard();
         }.bind({source: source, skill: skill}));
       }

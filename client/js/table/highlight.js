@@ -83,6 +83,10 @@ game.highlight = {
                    skill.data('type') === game.data.ui.instant) {
           game.highlight.active(event, source, skill);
         }
+        var bear = source.data('bear');
+        if (bear && game.map.el.has(bear)) {
+          bear.addClass('casttarget').on('mouseup.highlight touchend.highlight', game.player.cast);
+        }
       }
     }
     return skill;
@@ -238,8 +242,15 @@ game.highlight = {
         if (game.skill.castrange && !skill.hasClass('channel-on')) {
           source.crossStroke(game.skill.castrange, game.skill.castwidth, 'skillstroke');
         }
-      } else if (game.skill.castrange){
+      } else if (game.skill.castrange) {
         source.radialStroke(game.skill.castrange, 'skillstroke');
+      }
+      if (skill.data('targets').indexOf(game.data.ui.summon) > 0) {
+        // LD roar
+        var bear = source.data('bear');
+        if (bear && game.map.el.has(bear)) {
+          bear.radialStroke(game.skill.castrange, 'skillstroke');
+        }
       }
     }
     return skill;
@@ -258,7 +269,7 @@ game.highlight = {
     game.selectedCard.highlightArrows(spot);
     if (game.skill.aoe === game.data.ui.linear) {
       spot.linearStroke(game.skill.aoerange, game.skill.aoewidth, 'skillhoverstroke');
-      game.skill.castsource.crossStroke(game.skill.castrange, game.skill.castwidth, 'skillstroke');
+      spot.find('.card').crossStroke(game.skill.castrange, game.skill.castwidth, 'skillstroke');
     } else if (game.skill.aoe === game.data.ui.radial) {
       spot.radialStroke(game.skill.aoerange, 'skillhoverstroke');
     }
@@ -270,6 +281,10 @@ game.highlight = {
       game.skill.castsource.crossStroke(game.skill.castrange, game.skill.castwidth, 'skillstroke');
     } else if (game.skill.aoe === game.data.ui.radial) {
       game.skill.castsource.radialStroke(game.skill.castrange, 'skillstroke');
+      var bear = game.skill.castsource.data('bear');
+      if (bear && game.map.el.has(bear)) {
+        bear.radialStroke(game.skill.castrange, 'skillstrokesummon');
+      }
     }
   },
   highlightArrows: function (spot) {
@@ -277,14 +292,35 @@ game.highlight = {
         source = $('.map .source'),
         range = skill.data('aoe range');
     if (this.data('highlight') == 'top') {
-      source.around(range, function (neighbor) {
-        neighbor.addClass('toparrow');
-        $('.card', neighbor).addClass('toparrow');
-      });
+      // LD roar
+      var bear = source.data('bear');
+      if (spot) {
+        spot.around(range, function (neighbor) {
+          neighbor.addClass('toparrow');
+          $('.card', neighbor).addClass('toparrow');
+        });
+      } else {
+        if (bear && game.map.el.has(bear)) {
+          source.around(range, function (neighbor) {
+            neighbor.not(bear.parent()).addClass('toparrow');
+            $('.card', neighbor).not(bear).addClass('toparrow');
+          });
+          bear.around(range, function (neighbor) {
+            neighbor.not(source.parent()).addClass('toparrow');
+            $('.card', neighbor).not(source).addClass('toparrow');
+          });
+        } else {
+          source.around(range, function (neighbor) {
+            neighbor.addClass('toparrow');
+            $('.card', neighbor).addClass('toparrow');
+          });
+        }
+      }
     }
     if (this.data('highlight') == 'in') {
       var width = skill.data('aoe width');
       if (spot) {
+        // PUD hook
         var linedir = game.map.invertDirection(source.getDirectionStr(spot));
         source.inLine(spot, range, width, function (neighbor) {
           var card = $('.card', neighbor);
@@ -292,6 +328,7 @@ game.highlight = {
           else neighbor.addClass(linedir+'arrow');
         }, 1);
       } else {
+        // MAG ult
         source.inCross(range, width, function (neighbor, dir) {
           var invdir = game.map.invertDirection(dir);
           var card = $('.card', neighbor);
@@ -302,6 +339,7 @@ game.highlight = {
     }
     if (this.data('highlight') == 'out') {
       if (spot) {
+        // KOTL blind
         spot.inCross(1, 0, function (neighbor, dir) {
           var card = $('.card', neighbor);
           if (card.length) card.addClass(dir+'arrow');
