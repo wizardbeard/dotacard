@@ -33,8 +33,7 @@ game.turn = {
     game.currentMoves = [];
     $('.table .card.dead').each(function () {
       var dead = $(this);
-      if (game.time > dead.data('reborn') || 
-          (game.mode == 'library' && !dead.hasBuff('wk-ult')) ) { 
+      if (game.time > dead.data('reborn') && !dead.hasBuff('wk-ult') ) { 
         dead.reborn();
       }
     });

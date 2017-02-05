@@ -498,7 +498,9 @@ game.card = {
       var healFx, currentHeal,
         currenthp = this.data('current hp'),
         maxhp = this.data('hp'),
-        hp = currenthp + healhp;
+        hp;
+      healhp = parseInt(healhp);
+      hp = currenthp + healhp;
       if (hp > maxhp) {
         healhp = maxhp - currenthp;
         if (healhp === 0) return;
@@ -508,7 +510,7 @@ game.card = {
       }
       healFx = this.find('.heal');
       if (healFx.length && game.mode !== 'library') {
-        currentHeal = parseInt(healFx.text(), 10);
+        currentHeal = healFx.text();
         healFx.text(currentHeal + healhp);
       } else {
         healFx.remove();
@@ -523,7 +525,7 @@ game.card = {
   kill: function (evt) {
     var target = evt.target,
         source = evt.source;
-    target.addClass('dead').removeClass('target done').setCurrentHp(0);
+    target.setCurrentHp(0);
     if (source.hasClass('heroes') && target.hasClass('heroes')) {
       game[source.side()].kills += 1;
       var kills = source.data('kills') + 1;
@@ -536,7 +538,7 @@ game.card = {
       if (target.hasClass('selected')) { target.select(); }
       else if (source.hasClass('selected')) { source.select(); }
     }
-    game.timeout(400, function () {
+    game.timeout(800, function () {
       this.source.trigger('kill', this);
       this.target.die(this);
     }.bind(evt));
@@ -553,7 +555,11 @@ game.card = {
       deaths = this.data('deaths') + 1;
       this.data('deaths', deaths);
       this.find('.deaths').text(deaths);
-      if (!spot.hasClass('cript')) this.data('reborn', game.time + game.deadLength);
+      if (!spot.hasClass('cript')) {
+        if (game.mode === 'library') {
+          this.data('reborn', game.time + 1);
+        } else this.data('reborn', game.time + game.deadLength);
+      }
       if (this.hasClass('player')) {
         this.appendTo(game.player.heroesDeck);
       } else if (this.hasClass('enemy')) { this.appendTo(game.enemy.heroesDeck); }
