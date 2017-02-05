@@ -6,6 +6,7 @@ game.skills.ld = {
       if(!bear) {
         bear = source.summon(skill);
         source.data('bear', bear);
+        source.data('summon', bear);
         source.addBuff(bear, skill, 'demolish-source');
         source.addBuff(bear, skill, 'entangle-source');
         bear.on('attack', this.attack);
@@ -59,6 +60,7 @@ game.skills.ld = {
       killer.damage(ld, skill.data('death damage'), game.data.ui.pure);
       bear.data('return').discard();
       ld.data('bear', null);
+      ld.data('summon', null);
       bear.detach();
     }
   },

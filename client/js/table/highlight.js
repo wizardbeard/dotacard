@@ -83,9 +83,11 @@ game.highlight = {
                    skill.data('type') === game.data.ui.instant) {
           game.highlight.active(event, source, skill);
         }
-        var bear = source.data('bear');
-        if (bear && game.map.el.has(bear)) {
-          bear.addClass('casttarget').on('mouseup.highlight touchend.highlight', game.player.cast);
+        if (skill.data('targets').indexOf(game.data.ui.summon) > 0) {
+          var summon = source.data('summon');
+          if (game.highlight.possible(summon)) {
+            summon.addClass('casttarget').on('mouseup.highlight touchend.highlight', game.player.cast);
+          }
         }
       }
     }
@@ -246,10 +248,10 @@ game.highlight = {
         source.radialStroke(game.skill.castrange, 'skillstroke');
       }
       if (skill.data('targets').indexOf(game.data.ui.summon) > 0) {
-        // LD roar
-        var bear = source.data('bear');
-        if (bear && game.map.el.has(bear)) {
-          bear.radialStroke(game.skill.castrange, 'skillstroke');
+        var summon = source.data('summon');
+        if (game.highlight.possible(summon)) {
+          game.skill.summonHover = true;
+          summon.radialStroke(game.skill.castrange, 'skillstroke');
         }
       }
     }
@@ -281,11 +283,16 @@ game.highlight = {
       game.skill.castsource.crossStroke(game.skill.castrange, game.skill.castwidth, 'skillstroke');
     } else if (game.skill.aoe === game.data.ui.radial) {
       game.skill.castsource.radialStroke(game.skill.castrange, 'skillstroke');
-      var bear = game.skill.castsource.data('bear');
-      if (bear && game.map.el.has(bear)) {
-        bear.radialStroke(game.skill.castrange, 'skillstrokesummon');
+      if (game.skill.summonHover) {
+        var summon = game.skill.castsource.data('summon');
+        if (game.highlight.possible(summon)) {
+          summon.radialStroke(game.skill.castrange, 'skillstroke');
+        }
       }
     }
+  },
+  possible: function (unit) {
+    return (unit && game.map.el.has(unit) && !unit.hasClass('done'));
   },
   highlightArrows: function (spot) {
     var skill = this,
@@ -293,28 +300,23 @@ game.highlight = {
         range = skill.data('aoe range');
     if (this.data('highlight') == 'top') {
       // LD roar
-      var bear = source.data('bear');
+      var summon = source.data('summon');
       if (spot) {
         spot.around(range, function (neighbor) {
           neighbor.addClass('toparrow');
-          $('.card', neighbor).addClass('toparrow');
+          $('.card.enemy', neighbor).addClass('toparrow');
         });
       } else {
-        if (bear && game.map.el.has(bear)) {
-          source.around(range, function (neighbor) {
-            neighbor.not(bear.parent()).addClass('toparrow');
-            $('.card', neighbor).not(bear).addClass('toparrow');
-          });
-          bear.around(range, function (neighbor) {
+        if (game.highlight.possible(summon)) {
+          summon.around(range, function (neighbor) {
             neighbor.not(source.parent()).addClass('toparrow');
-            $('.card', neighbor).not(source).addClass('toparrow');
-          });
-        } else {
-          source.around(range, function (neighbor) {
-            neighbor.addClass('toparrow');
-            $('.card', neighbor).addClass('toparrow');
+            $('.card.enemy', neighbor).addClass('toparrow');
           });
         }
+        source.around(range, function (neighbor) {
+          neighbor.addClass('toparrow');
+          $('.card.enemy', neighbor).addClass('toparrow');
+        });
       }
     }
     if (this.data('highlight') == 'in') {
@@ -341,7 +343,7 @@ game.highlight = {
       if (spot) {
         // KOTL blind
         spot.inCross(1, 0, function (neighbor, dir) {
-          var card = $('.card', neighbor);
+          var card = $('.card.enemy', neighbor);
           if (card.length) card.addClass(dir+'arrow');
           else neighbor.addClass(dir+'arrow');
         });
@@ -359,6 +361,7 @@ game.highlight = {
     game.skill.castrange = null;
     game.skill.castwidth = null;
     game.skill.castsource = null;
+    game.skill.summonHover = null;
     game.map.el.removeClass('aoe');
     $('.map .card, .map .spot').clearEvents('highlight').removeClass('source stroke attacktarget casttarget movearea targetarea stroke playerattack enemyattack skillhoverstroke skillstroke top bottom left right toparrow bottomarrow leftarrow rightarrow');
   }

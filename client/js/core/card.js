@@ -444,7 +444,6 @@ game.card = {
         armor = target.data('current armor');
         if (armor) finalDamage = damage - armor; 
       }
-      if (type === 'critical') source.data('critical-attack', true);
       if (finalDamage < 1) finalDamage = 1;
       if (damage < 1) damage = 1;
       if (typeof target === 'string') { target = $('#' + target + ' .card'); }
@@ -595,8 +594,7 @@ game.card = {
     }
     if (spot && spot.length) {  
       var side = this.side();
-      var unit = this.data('killer');
-      if (!nopenalty) unit.damage(game.heroDeathDamage, game[side].tower, game.data.ui.pure);
+      if (!nopenalty) game[game.opponent(side)].tower.damage(game.heroDeathDamage, game[side].tower, game.data.ui.pure);
       this.data('reborn', null);
       this.setCurrentHp(hp);
       this.removeClass('dead');

@@ -441,19 +441,33 @@
   left: 60px;
   top: 50px;
 }
+.map .enemy.toparrow:after, .map .enemy.bottomarrow:after, .map .enemy.leftarrow:after, .map .enemy.rightarrow:after {
+  border-right: 12px solid #ff1f0a;
+  border-bottom: 12px solid #ff1f0a;
+}
 
 .map .toparrow:after {
-  transform: rotate(-135deg) scale(0.5);
+  transform: translateY(20px) rotate(-135deg) scale(0.5);
 }
-
 .map .bottomarrow:after {
-  transform: translateY(120px) rotate(45deg) scale(0.5);
+  transform: translateY(100px) rotate(45deg) scale(0.5);
 }
-
 .map .leftarrow:after {
   transform: translate(-30px, 60px) rotate(135deg) scale(0.5);
 }
-
 .map .rightarrow:after {
   transform: translate(30px, 60px) rotate(-45deg) scale(0.5);
+}
+
+.map .enemy.toparrow:after {
+  transform: translateY(60px) rotate(-135deg) scale(0.9);
+}
+.map .enemy.bottomarrow:after {
+  transform: translateY(60px) rotate(45deg) scale(0.9);
+}
+.map .enemy.leftarrow:after {
+  transform: translate(10px, 60px) rotate(135deg) scale(0.9);
+}
+.map .enemy.rightarrow:after {
+  transform: translateY(60px) rotate(-45deg) scale(0.9);
 }
