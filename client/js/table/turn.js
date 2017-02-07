@@ -123,8 +123,8 @@ game.turn = {
         duration -= 1;
         buff.data('duration', duration);
       } else if (data && data.temp && data.buffId) {
-        hero.removeBuff(data.buffId);
         buff.trigger('expire', {target: hero});
+        hero.removeBuff(data.buffId);
       }
     });
   },

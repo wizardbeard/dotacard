@@ -100,6 +100,10 @@ game.skill = {
           //console.trace('castend')
           this.skill.discard();
         }.bind({source: source, skill: skill}));
+        else game.timeout(300, function () { 
+          //console.trace('librarycastend')
+          this.skill.unselect();
+        }.bind({source: source, skill: skill}));
       }
     }
     return this;

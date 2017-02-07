@@ -25,6 +25,7 @@ game.skills.nyx = {
   spike: {
     cast: function (skill, source) {
       var buff = source.selfBuff(skill);
+      source.addClass('nyx-spike');
       source.on('damage.nyx-spike', this.damage);
       source.data('nyx-spike', skill);
       buff.on('expire', this.expire);
@@ -40,9 +41,10 @@ game.skills.nyx = {
       }
     },
     expire: function (event, eventdata) {
-      var source = eventdata.source;
-      source.data('nyx-spike', null);
-      source.off('damage.nyx-spike');
+      var target = eventdata.target;
+      target.data('nyx-spike', null);
+      target.off('damage.nyx-spike');
+      target.removeClass('nyx-spike');
     }
   },
   ult: {

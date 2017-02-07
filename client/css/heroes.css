@@ -50,9 +50,10 @@
   background-image: url("../img/skills/cm/crystal_maiden_freezing_field.jpg");
 }
 
-.map .cm-ult .portrait .img {
+.map .cm.heroes.cm-ult .portrait .img {
   background-size: 300%;
-  background-position: 65% 0%;
+  background-position: 58% 50%;
+  transform: scaleX(-1);
 }
 
 .kotl {
@@ -66,12 +67,14 @@
 .kotl-illuminate .img, .map .kotl.illuminating .img, .buffs .buff.kotl-illuminate .img {
   background-image: url("../img/skills/kotl/keeper_of_the_light_illuminate.jpg");
 }
-
+.map .kotl.illuminating .img {
+  background-position: 20% 50%;
+}
 .kotl-illuminate.spiritform .img {
   background-image: url("../img/skills/kotl/keeper_of_the_light_spirit_form_illuminate.jpg");
 }
 
-.table .map .illuminating:after {
+.map .card.illuminating:after {
   content: "";
   display: block;
   position: absolute;
@@ -83,22 +86,22 @@
   animation: illuminating 1s infinite;
 }
 
-.table .map .illuminating.illumi-left:after {
+.map .illuminating.illumi-left:after {
   top: calc(50% - 20px);
   left: -15%;
 }
 
-.table .map .illuminating.illumi-right:after {
+.map .illuminating.illumi-right:after {
   top: calc(50% - 20px);
   left: 90%;
 }
 
-.table .map .illuminating.illumi-top:after {
+.map .illuminating.illumi-top:after {
   top: -10%;
   left: calc(50% - 20px);
 }
 
-.table .map .illuminating.illumi-bottom:after {
+.map .illuminating.illumi-bottom:after {
   top: 90%;
   left: calc(50% - 20px);
 }
@@ -113,11 +116,11 @@
   }
 }
 
-.table .map .casttarget.illuminating:after {
+.map .casttarget.illuminating:after {
   border: 0;
 }
 
-.table .map .casttarget.illuminating:hover:after {
+.map .casttarget.illuminating:hover:after {
   animation: illuminating 1s infinite;
 }
 
@@ -208,8 +211,13 @@
   background: #145;
 }
 
-.nyx.heroes .img {
+.nyx.heroes .portrait .img {
   background-image: url("../img/heroes/nyx.jpg");
+}
+
+.map .nyx.heroes.nyx-spike .portrait .img {
+  background-image: url("../img/skills/nyx/nyx_assassin_spiked_carapace.jpg");
+  background-position: 35% 50%;
 }
 
 .nyx-stun .img, .buffs .buff.nyx-stun .img {
@@ -224,7 +232,7 @@
   background-image: url("../img/skills/nyx/nyx_assassin_spiked_carapace.jpg");
 }
 
-.nyx-ult .img, .buffs .buff.nyx-ult .img, .map .nyx.invisible .img {
+.nyx-ult .img, .buffs .buff.nyx-ult .img, .map .nyx.heroes.invisible .portrait .img {
   background-image: url("../img/skills/nyx/nyx_assassin_vendetta.jpg");
 }
 
