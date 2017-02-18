@@ -324,6 +324,7 @@ input:focus {
   min-width: 75px;
   min-height: 30px;
   overflow: hidden;
+  font-weight: bold;
 }
 
 .button:hover, button:hover, input[type=button]:hover, input[type=submit]:hover {
@@ -429,6 +430,7 @@ label span {
   height: 40px;
   width: 100px;
   line-height: 16px;
+  font-weight: bold;
 }
 
 .log .steel {

@@ -11,7 +11,7 @@ body, p, noscript {
 }
 
 .card h1 {
-  font-family: "Open Sans", "open sans", "Droid Sans", "Lucida Sans Unicode", "Lucida Grande", 'Segoe UI', Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-family: "Open Sans";
 }
 
 @font-face {
@@ -22,7 +22,7 @@ body, p, noscript {
 }
 
 h1, h2, .button, .sweet-alert button, .options span, .topbar *, .choose .counter {
-  font-family: "Julius Sans One", "Open Sans", "open sans", "Droid Sans", "Lucida Sans Unicode", "Lucida Grande", 'Segoe UI', Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-family: "Julius Sans One";
 }
 
 @font-face {
@@ -33,11 +33,18 @@ h1, h2, .button, .sweet-alert button, .options span, .topbar *, .choose .counter
 }
 
 .tutorial .battle, .versus {
-  font-family: "Sansita One", "Open Sans", "open sans", "Droid Sans", "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+  font-family: "Sansita One";
+}
+
+@font-face {
+  font-family: 'Brush Stroke';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Brush Stroke Regular Std'), local('Brush Stroke Regular'), url('../fonts/Brush-Stroke-Regular.woff2') format('woff2'), url('../fonts/Brush-Stroke-Regular.woff') format('woff');
 }
 
 .card .damaged, .card .heal {
-  font-family: "Sansita One", "Open Sans", "open sans", "Droid Sans", "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+  font-family: "Brush Stroke";
 }
 
 input[type="text"] {

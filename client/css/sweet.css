@@ -5,7 +5,7 @@
 .sweet-alert.options {
   font-weight: bold;
   color: white;
-  background: rgba(11, 15, 14, 0.95) !important;
+  background: hsla(174, 10%, 13%, 0.95) !important;
   min-width: 760px;
 }
 
@@ -89,7 +89,7 @@
 }
 
 .sweet-alert button {
-  font-weight: normal;
+  font-weight: bold;
   margin: 22px;
 }
 

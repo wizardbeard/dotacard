@@ -59,7 +59,6 @@
 }
 .options input + span {
   cursor: pointer;
-  font-weight: normal;
 }
 .options .audioconfig label span:first-child {
   

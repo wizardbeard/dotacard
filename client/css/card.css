@@ -212,9 +212,11 @@
 .card.enemy.towers {
   background: #a23030;
 }
+
 .card.enemy {
   background: #c55f5f;
 }
+
 .card.enemy.units {
   background: #e3799c;
 }
@@ -287,7 +289,15 @@
   right: 0;
   font-size: 150px;
   animation: slideup 3s linear;
-  text-shadow: 10px 0 white, -10px 0 white, 0 10px white, 0 -10px white, 10px 10px white, -10px 10px white, 10px -10px white, -10px -10px white;
+  text-shadow:
+   5px  0   #ffa,
+  -5px  0   #ffa,
+   0    5px #ffa,
+   0   -5px #ffa,
+   5px  5px #ffa,
+  -5px  5px #ffa,
+   5px -5px #ffa,
+  -5px -5px #ffa;
 }
 
 .card .damaged.critical, .card .missed {
@@ -310,12 +320,20 @@
   left: 0;
   font-size: 150px;
   animation: slideup 3s linear;
-  text-shadow: 10px 0 white, -10px 0 white, 0 10px white, 0 -10px white, 10px 10px white, -10px 10px white, 10px -10px white, -10px -10px white;
+  text-shadow: 
+  5px  0   #afa,
+ -5px  0   #afa, 
+   0   5px #afa, 
+   0  -5px #afa, 
+  5px  5px #afa, 
+ -5px  5px #afa, 
+  5px -5px #afa, 
+ -5px -5px #afa;
 }
 
 @keyframes slideup {
   0% {
-    top: -120px;
+    top: 0;
     opacity: 0;
   }
 
@@ -332,7 +350,7 @@
   }
 
   100% {
-    top: -240px;
+    top: -200px;
     opacity: 0;
   }
 }
@@ -361,15 +379,16 @@
   transition: all 0.1s;
 }
 
-
 .selectedarea .card .buffs .buff:hover {
   transform: scale(3);
   z-index: 10;
 }
+
 .selectedarea .card .buffs .buff:hover .img {
   border-radius: 2px;
   border: 1px solid white;
 }
+
 .card .buffs .buff .img , .card .buffs .buff .overlay {
   border-radius: 50%;
   box-shadow: 0 0 8px rgba(0,0,0,0.5) inset;
@@ -470,14 +489,12 @@
   transform: translate3d(-50%,-50%,0) scale(0.4) rotateY(-180deg);
 }
 
-.skills.card,
-.units.card {
+.skills.card, .units.card {
   transform-style: preserve-3d;
   backface-visibility: hidden;
 }
 
-.skills.card:after,
-.units.card:after {
+.skills.card:after, .units.card:after {
   content: "";
   display: block;
   background: white;
@@ -509,7 +526,6 @@
 .table .player .sidehand .card {
   /*flex child*/
 }
-
 
 .table .player .skills .card.slidedown {
   transform: translate3d(-50%, 15%, 0) scale(0.4);
@@ -691,24 +707,24 @@
   display: none;
 }
 
-.map .card h1, 
-.map .card .desc, 
-/*.map .card .buff, */
-.card.dragTargetClone.fromMap h1, 
-.card.dragTargetClone.fromMap .desc, 
-.card.dragTargetClone.fromMap .buff {
+.map .card h1, .map .card .desc, /*.map .card .buff, */
+.card.dragTargetClone.fromMap h1, .card.dragTargetClone.fromMap .desc, .card.dragTargetClone.fromMap .buff {
   display: none;
 }
+
 .map .card .buffs {
   position: relative;
-  top: -28px; left: 0px;
+  top: -28px;
+  left: 0px;
 }
+
 .map .card .buff {
   border-radius: 50%;
   overflow: hidden;
   border: 3px solid #fff;
   margin-right: -16px;
 }
+
 .map .card fieldset, .card.dragTargetClone.fromMap fieldset {
   padding: 0;
   margin: 18px 5px;
@@ -766,12 +782,15 @@
 .card.units.melee.player .img {
   background-image: url("../img/creeps/player_melee.jpg");
 }
+
 .card.units.melee.enemy .img {
   background-image: url("../img/creeps/enemy_melee.jpg");
 }
+
 .card.units.ranged.player .img {
   background-image: url("../img/creeps/player_ranged.jpg");
 }
+
 .card.units.ranged.enemy .img {
   background-image: url("../img/creeps/enemy_ranged.jpg");
 }
