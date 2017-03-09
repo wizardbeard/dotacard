@@ -5,13 +5,9 @@
   src: local('Open Sans'), local('OpenSans'), url(../fonts/Open-Sans.woff2) format('woff2'), url(../fonts/Open-Sans.woff) format('woff');
 }
 
-body, p, noscript {
+body, p, noscript, .card h1 {
   line-height: 28px;
   font-family: "Open Sans", "open sans", "Droid Sans", "Lucida Sans Unicode", "Lucida Grande", 'Segoe UI', Tahoma, Verdana, Arial, Helvetica, sans-serif;
-}
-
-.card h1 {
-  font-family: "Open Sans";
 }
 
 @font-face {

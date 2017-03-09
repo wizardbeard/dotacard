@@ -12,7 +12,7 @@
   overflow: hidden;
   z-index: 15;
   transform: translateZ(1px);
-  background: rgba(11, 15, 14, 0.6);
+  background: rgba(11, 15, 14, 0.7);
   font-weight: bold;
 }
 

@@ -74,7 +74,7 @@ game.enemy = {
       var m = game.currentMoves[game.enemy.autoMoveCount];
       if (m && m.length) move = m.split(':');
     }
-    if (move.length) {
+    if (move && move.length) {
       $('.enemyMoveHighlight').removeClass('enemyMoveHighlight');
       $('.enemyMoveHighlightTarget').removeClass('enemyMoveHighlightTarget');
       $('.source').removeClass('source');

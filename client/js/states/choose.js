@@ -59,7 +59,10 @@ game.states.choose = {
     var card = $(this);
     if (card.hasClass && card.hasClass('card')) {
       $('.choose .selected').removeClass('selected draggable');
+      $('.choose .half').removeClass('half');
       card.addClass('selected');
+      card.prev().addClass('half');
+      card.next().addClass('half');
       if (game.mode !== 'library' && !card.hasClass('dead')) card.addClass('draggable');
       else if (game.mode == 'library') game.library.select(card, recover);
       var index = card.siblings(':visible').addBack().index(card) || card.index();

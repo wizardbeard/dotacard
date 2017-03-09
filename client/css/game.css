@@ -165,7 +165,7 @@ noscript {
   padding: 40px 80px;
   text-align: center;
   border-radius: 5px;
-  background-color: rgba(11, 15, 14, 0.6);
+  background-color: rgba(11, 15, 14, 0.7);
 }
 
 .box div p {
@@ -315,7 +315,7 @@ input:focus {
   outline: 0;
   background: #9dada4;
   color: white;
-  text-shadow: 0 1px 0 #555;
+  text-shadow: 0 1.5px 0 #444;
   box-shadow: 0 4px 0 #666;
   position: relative;
   top: -3px;

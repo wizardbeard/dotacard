@@ -11,13 +11,19 @@
   top: 50%;
   left: 50%;
   transform: translate3d(-50%, -50%, 0) translateZ(0) scale(0.4);
+  filter: blur(3px);
 }
 
 .pickbox .card.selected {
   margin: 0 22px;
   transform: translate3d(-50%, -50%, 0);
+  filter: blur(0);
 }
 
+.pickbox .card.half {
+  transform: translate3d(-50%, -50%, 0) scale(0.5);
+  filter: blur(1.5px);
+}
 .pickedbox .card {
   animation: pickedboxslidedown 0.5s;
   top: 50%;
@@ -111,7 +117,7 @@
   width: 100%;
 }
 
-.card h1 {
+.card fieldset h1 {
   cursor: inherit;
   margin: 6px 0 2px;
   font-size: 12px;
@@ -782,9 +788,15 @@
 .card.units.melee.player .img {
   background-image: url("../img/creeps/player_melee.jpg");
 }
+.map .card.units.melee.player .img {
+  background-position: 80% 50%;
+}
 
 .card.units.melee.enemy .img {
   background-image: url("../img/creeps/enemy_melee.jpg");
+}
+.map .card.units.melee.enemy .img {
+  background-position: 30% 50%;
 }
 
 .card.units.ranged.player .img {
