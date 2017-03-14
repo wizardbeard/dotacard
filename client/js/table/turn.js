@@ -27,6 +27,7 @@ game.turn = {
       game.enemy.turn += 1;
       game.message.text(game.data.ui.enemyturn);
       game.turn.start('enemy-turn', cb);
+      game.loader.addClass('loading');
     }
   },
   start: function (turn, cb) {

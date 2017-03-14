@@ -19,6 +19,7 @@
 .topbar * {
   position: absolute;
   top: 5px;
+  line-height: 14px;
 }
 
 .loader {
@@ -56,9 +57,9 @@
 }
 
 .topbar .triescounter {
-  font-size: 8px;
+  font-size: 6px;
   left: 7px;
-  top: 4px;
+  top: 5px;
   width: 12px;
   text-align: center;
 }
@@ -66,29 +67,26 @@
 .topbar p {
   display: inline;
   margin: 0;
+  padding: 0;
 }
 
 .topbar .message {
-  position: absolute;
   padding-left: 26px;
   padding-right: 4px;
   border-radius: 4px;
   cursor: default;
+  width: 400px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .topbar .message * {
   position: static;
 }
 
-.topbar .time, .topbar .turns {
-  position: absolute;
-  top: 2px;
-  line-height: 18px;
-  border-radius: 4px;
-}
-
 .topbar .time {
-  left: 40%;
+  left: 50%;
   transform: translateX(-50%);
 }
 

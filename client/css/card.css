@@ -48,7 +48,10 @@
 .pickedbox .card.heroes h1, .pickedbox .card.heroes .current, .pickedbox .card.heroes .desc, .pickedbox .card.heroes .buff {
   opacity: 0;
 }
-
+.pickedbox .card.heroes fieldset {
+  padding: 0;
+  background: transparent;
+}
 .pickedbox .card.heroes .portrait .img, .pickedbox .card.heroes .portrait .overlay {
   height: 265px;
 }
