@@ -799,7 +799,8 @@
   background-image: url("../img/creeps/enemy_melee.jpg");
 }
 .map .card.units.melee.enemy .img {
-  background-position: 30% 50%;
+  background-position: 15% 30%;
+  background-size: 400%;
 }
 
 .card.units.ranged.player .img {

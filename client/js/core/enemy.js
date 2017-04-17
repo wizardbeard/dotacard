@@ -64,7 +64,7 @@ game.enemy = {
     else game.currentMoves = game.currentData.moves;
     game.enemy.autoMoveCount = 0;
     game.enemy.moveEndCallback = cb;
-    if (game.currentMoves.length) game.enemy.autoMove();
+    if (game.currentMoves.length) game.timeout(1000, game.enemy.autoMove);
     else game.timeout(1000, game.enemy.movesEnd);
   },
   autoMove: function (ai) {
@@ -131,7 +131,7 @@ game.enemy = {
     $('.enemyMoveHighlight').removeClass('enemyMoveHighlight');
     $('.enemyMoveHighlightTarget').removeClass('enemyMoveHighlightTarget');
     $('.source').removeClass('source');
-    game.timeout(400, game.enemy.moveEndCallback);
+    game.timeout(1000, game.enemy.moveEndCallback);
   },
   move: function (from, to) {
     var target = $('#' + from + ' .card');

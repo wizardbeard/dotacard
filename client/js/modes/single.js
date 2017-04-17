@@ -58,10 +58,10 @@ game.single = {
     if (turn == 'player-turn') { 
       game.single.endPlayerTurn();
     }
-    if (turn == 'enemy-turn') {
-      game.loader.addClass('loading');
-      game.single.endEnemyTurn();
-    }
+//     if (turn == 'enemy-turn') {
+//       game.loader.addClass('loading');
+//       game.single.endEnemyTurn();
+//     }
   },
   beginPlayer: function () {
     game.turn.beginPlayer(function () {
@@ -99,7 +99,7 @@ game.single = {
       }
       game.enemy.buyHand();
       game.tower.attack('player');
-      game.timeout(800, game.ai.turnStart);
+      game.timeout(1000, game.ai.turnStart);
     });
   },
   endEnemyTurn: function () {

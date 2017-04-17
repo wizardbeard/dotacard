@@ -71,7 +71,7 @@ game.turn = {
         game.turn.counter -= 1;
         game.turn.timeout = game.timeout(1000, game.turn.count.bind(this, turn, endCallback, countCallback));
       }
-      if (game.turn.counter === 0 && endCallback) game.timeout(1000, function () { endCallback(turn); });
+      if (game.turn.counter === 0 && endCallback) game.turn.timeout = game.timeout(1000, function () { endCallback(turn); });
     }
   },
   stopCount: function () {

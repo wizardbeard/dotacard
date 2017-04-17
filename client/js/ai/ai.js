@@ -21,7 +21,6 @@ game.ai = {
     }
   },
   turnStart: function () {
-    //console.clear();
     //game.message.text(game.data.ui.enemymove);
     $('.map .ai').removeClass('ai');
     game.ai.currentmovesLoop = game.ai.movesLoop;
@@ -77,38 +76,33 @@ game.ai = {
       //todo: make a list of possible actions and after data
       game.ai.decideAction(card, cardData);
     }
-    // loop nextMove
-    game.timeout(100, function () {
-      if (game.currentData.moves.length) {
-        //console.log(game.currentData.moves)
-        game.enemy.autoMove(game.ai.nextMove);
-      } else {
-        game.ai.nextMove();
-      }
-    });
+    if (game.currentData.moves.length) {
+      //console.log(game.currentData.moves)
+      game.enemy.autoMove(game.ai.nextMove);
+    } else {
+      game.ai.nextMove();
+    }
   },
   nextMove: function () {
-    if (game.ai.currentmovesLoop > 0) {
+    if (game.ai.currentmovesLoop > 0 && game.turn.counter > 1) {
       if (game.currentData.moves.length) {
         game.ai.currentmovesLoop -= 1;
       } else {
         game.ai.currentmovesLoop -= (1/game.ai.noMovesLoop);
       }
-      game.timeout(100, game.ai.moveRandomCard);
+      game.ai.moveRandomCard();
     } else {
       game.ai.endTurn();
     }
   },
-  endTurn: function () { 
+  endTurn: function () {
     //debugger
     // discard after N turns
     $('.enemydecks .hand .skills').each(function (i, el) {
       var card = $(el);
       game.ai.skillsDiscard(card);
     });
-    game.timeout(100, function () {
-      game.enemy.startMoving(game.single.endEnemyTurn);
-    });
+    game.single.endEnemyTurn();
   },
   resetData: function () {
     // todo: ai.history
