@@ -324,7 +324,7 @@ input:focus {
   min-width: 75px;
   min-height: 30px;
   overflow: hidden;
-  font-weight: bold;
+  font-weight: 300;
 }
 
 .button:hover, button:hover, input[type=button]:hover, input[type=submit]:hover {
