@@ -1,7 +1,7 @@
 {
 
   "am":{
-    "name": "Anti Mage",
+    "name": "Magina",
     "attribute": "Agility",
     "range": "Melee",
     "hp": 40,
@@ -14,7 +14,7 @@
   },
 
   "cm":{
-    "name": "Crystal Maiden",
+    "name": "Ice Maiden",
     "attribute": "Intelligence",
     "range": "Ranged",
     "hp": 40,
@@ -27,7 +27,7 @@
   },
 
   "kotl":{
-    "name": "Keeper of the Light",
+    "name": "Light Keeper",
     "attribute": "Intelligence",
     "range": "Ranged",
     "hp": 40,
@@ -39,7 +39,7 @@
   },
   
   "ld":{
-    "name": "Lone Druid",
+    "name": "Bear Druid",
     "attribute": "Agility",
     "range": "Short",
     "hp": 50,
@@ -51,7 +51,7 @@
   },
 
   "nyx":{
-    "name": "Nyx Assassin",
+    "name": "Nyxmix",
     "attribute": "Agility",
     "range": "Melee",
     "hp": 50,
@@ -63,7 +63,7 @@
   },
 
   "pud":{
-    "name": "Pudge, the Butcher",
+    "name": "Butcher",
     "attribute": "Strength",
     "range": "Melee",
     "hp": 70,
@@ -76,7 +76,7 @@
   },
 
   "wk":{
-    "name": "Wraith King",
+    "name": "Dead King",
     "attribute": "Strength",
     "range": "Melee",
     "hp": 60,

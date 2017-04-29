@@ -1,6 +1,6 @@
 {
   "am":{
-    "name": "Anti Mage",
+    "name": "Magina",
     "attribute": "Çeviklik",
     "range": "Meydan",
     "hp": 40,
@@ -13,7 +13,7 @@
   },
 
   "cm":{
-    "name": "Crystal Maiden",
+    "name": "Ice Maiden",
     "attribute": "Zeka",
     "range": "Menzilli",
     "hp": 40,
@@ -26,7 +26,7 @@
   },
 
   "kotl":{
-    "name": "Keeper of the Light",
+    "name": "Light Keeper",
     "attribute": "Zeka",
     "range": "Menzilli",
     "hp": 40,
@@ -38,7 +38,7 @@
   },
 
   "ld":{
-    "name": "Lone Druid",
+    "name": "Bear Druid",
     "attribute": "Çeviklik",
     "range": "Kısa",
     "hp": 50,
@@ -50,7 +50,7 @@
   },
   
   "nyx":{
-    "name": "Nyx Assassin",
+    "name": "Nyxmix",
     "attribute": "Çeviklik",
     "range": "Meydan",
     "hp": 50,
@@ -62,7 +62,7 @@
   },
 
   "pud":{
-    "name": "Pudge, the Butcher",
+    "name": "Butcher",
     "attribute": "Kuvvet",
     "range": "Meydan",
     "hp": 70,
@@ -75,7 +75,7 @@
   },
 
   "wk":{
-    "name": "Wraith King",
+    "name": "Dead King",
     "attribute": "Kuvvet",
     "range": "Meydan",
     "hp": 60,

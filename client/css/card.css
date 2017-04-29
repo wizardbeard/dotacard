@@ -807,7 +807,13 @@
 .card.units.ranged.player .img {
   background-image: url("../img/creeps/player_ranged.jpg");
 }
+.map .card.units.ranged.player .img {
+  background-position: 20% 50%;
+}
 
 .card.units.ranged.enemy .img {
   background-image: url("../img/creeps/enemy_ranged.jpg");
+}
+.map .card.units.ranged.enemy .img {
+  background-position: 60% 50%;
 }
