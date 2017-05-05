@@ -4,7 +4,7 @@ game.states.log = {
     this.box = $('<div>').addClass('box');
     this.logo = $('<div>').appendTo(this.el).addClass('logo slide');
     this.title = $('<img>').attr({alt: 'DOTA', src: 'img/title.png'}).addClass('h1');
-    this.subtitle = $('<img>').appendTo(this.logo).attr({alt: 'CARD', src: 'img/subtitle.png'}).addClass('h2');
+    //this.subtitle = $('<img>').appendTo(this.logo).attr({alt: 'CARD', src: 'img/subtitle.png'}).addClass('h2');
     this.boxtitle = $('<h1>').appendTo(this.box).text(game.data.ui.choosename);
     this.form = $('<form>').appendTo(this.box).on('submit', function (event) { event.preventDefault(); return false; });
     this.input = $('<input>').appendTo(this.form).attr({placeholder: game.data.ui.logtype, type: 'text', required: 'required', minlength: 3, maxlength: 24, tabindex: 1}).keydown(function (event) { if (event.which === 13) { game.states.log.login(); } });

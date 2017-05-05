@@ -1,10 +1,10 @@
-﻿{
-  "name": "DotaCard Game",
-  "short_name": "DotaCard",
+{
+  "name": "Fight Over Dat Ancient",
+  "short_name": "FODA",
   "start_url": ".",
   "background_color": "#22272c",
   "display": "fullscreen",
-  "description": "DotaCard Game - Free and open source card game based on Defense of the Ancients",
+  "description": "Free and open source card game based on Defense of the Ancients",
   "icons": [{
     "src": "favicon.png",
     "sizes": "32x32",

@@ -175,19 +175,19 @@ noscript {
 .log .h1 {
   z-index: 10;
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 50%;
   animation: logoslideup 0.8s 1;
-  transform: translate(-50%, -105%);
+  transform: translate(-50%, -100%);
 }
 
 @keyframes logoslideup {
   0% {
-    transform: translate(-50%, -80%);
+    transform: translate(-50%, -75%);
   }
 
   100% {
-    transform: translate(-50%, -105%);
+    transform: translate(-50%, -100%);
   }
 }
 
@@ -220,7 +220,7 @@ noscript {
 
 .loading .box {
   width: 230px;
-  top: 92%;
+  top: 65%;
   padding: 0;
 }
 
@@ -418,8 +418,8 @@ label span {
 }
 
 .log .box {
-  padding: 360px 110px 30px;
-  width: 590px;
+  padding: 250px 100px 40px;
+  width: 550px;
 }
 
 .log form {
@@ -435,8 +435,8 @@ label span {
 
 .log .steel {
   position: absolute;
-  bottom: 64px;
-  right: 145px;
+  bottom: 75px;
+  right: 124px;
   width: 100px;
   height: 42px;
   background: url("/img/bkg/steel.jpg");
