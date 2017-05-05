@@ -1,10 +1,10 @@
-#[dotacard.ga][3]
+# [Fight Over Dat Ancient][3]
 
-[![DotaCard Banner](http://dotacard.herokuapp.com/client/img/campaign/ico_rosh.png)][1]
+[![FODA](http://dotacard.herokuapp.com/client/img/campaign/ico_rosh.png)][1]
 
 [![Discord Chat Channel](http://dotacard.herokuapp.com/client/img/discord.png)][2]
 
-A **Defense Of The Ancients** card game with the heroes you love and all their skills and ultimates
+A **card game** with magical heroes, full of skills and powerful ultimates.
 
 You are free to [fork][4] or [download][5] and help to build the game, you can even make a hero and [win real cash!][6]
 
